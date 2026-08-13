@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#071e24">
+<title>重生世界杯 V4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<section id="activation" class="screen active">
+  <div class="topbar"><div class="brand"><span class="ball"></span>WORLD CUP REBIRTH</div><span class="pill">V4 MOBILE</span></div>
+  <div class="hero" style="padding-top:70px"><div class="pill" style="display:inline-block">2026 · 104 MATCHES</div><h1>重生世界杯<br>移动端重构版</h1><p>本版按手机网页部署优化国旗显示；比赛展开页按你给的体彩参考重做。</p></div>
+  <div class="card homecard">
+    <div style="font-size:12px;font-weight:900;margin-bottom:8px">激活码</div>
+    <input id="code" value="WC26-V4-DEMO" style="width:100%;height:50px;border:1px solid #ddd;border-radius:13px;padding:0 12px;font-weight:900;letter-spacing:.04em">
+    <button class="btn primary" style="width:100%;margin-top:10px" data-action="activate">进入世界杯</button>
+    <div class="notice">测试码：WC26-V4-DEMO。虚拟积分仅用于游戏模拟，不对应真实资金。</div>
+  </div>
+</section>
+
+<section id="home" class="screen">
+  <div class="topbar"><div class="brand"><span class="ball"></span>WORLD CUP 2026</div><span class="pill" id="homeDay">DAY 01</span></div>
+  <div class="hero"><div class="pill" style="display:inline-block">REBIRTH MODE</div><h1>100积分<br>重回世界杯开幕日</h1><p>真实赛程、真实90分钟赛果、104场公开赛前1X2赔率；其它市场可继续导入真实固定奖金覆盖。</p><div class="flagwall" id="flagwall"></div></div>
+  <div class="card homecard">
+    <div class="identity"><div class="avatar" id="avatar">👕</div><div><div class="sub">当前身份</div><h2 id="identityName">普通球迷</h2><p id="identityDesc"></p></div></div>
+    <div class="progress"><i id="levelBar" style="width:0"></i></div>
+    <div class="stats"><div class="stat"><b id="balance">100</b><span>当前积分</span></div><div class="stat"><b id="daysAlive">0</b><span>存活天数</span></div><div class="stat"><b id="hits">0</b><span>命中场次</span></div></div>
+  </div>
+  <div class="card daycard">
+    <div class="daytitle"><div><div class="sub" id="dayDate"></div><h3 id="dayTitle">DAY 01</h3></div><span class="pill" style="background:#751b29;border:0" id="dayCount"></span></div>
+    <span class="stage" id="dayStage"></span>
+    <div class="sub" id="dayIntro" style="margin-top:8px"></div>
+    <div class="btnrow"><button class="btn dark" data-action="memory">未来记忆</button><button class="btn primary" data-action="enter-day">进入今天</button></div>
+    <div class="btnrow" style="grid-template-columns:1fr"><button class="btn ghost" data-action="data-center">数据中心 / 导入真实固定奖金</button></div>
+  </div>
+</section>
+
+<section id="memory" class="screen">
+ <div class="topbar"><button class="smallbtn ghost" data-action="home">返回</button><div class="brand">未来记忆</div><span class="pill"><span id="timer">01:30</span></span></div>
+ <div class="memoryHead"><h2>世界杯完整记忆</h2><p class="sub" style="color:#f8dce1;margin-top:6px">按阶段和比赛日浏览，不再把104场混成一长串。</p></div>
+ <div id="memoryBody"></div>
+ <button class="btn primary" style="width:100%;margin-top:10px" data-action="enter-day">记住了，开始今天</button>
+</section>
+
+<section id="game" class="screen">
+ <div class="topbar"><button class="smallbtn ghost" data-action="home">首页</button><div class="brand" id="gameBrand">DAY 01</div><span class="pill" id="gameBalance">100分</span></div>
+ <div class="gameTop"><h2 id="gameTitle"></h2><p>先点主胜/平/客胜，或点“展开全部”打开完整比分、总进球等玩法。</p></div>
+ <div id="matchList"></div>
+ <div class="bottomAction"><div class="line"><div><b id="selectedSummary">已选 0 场</b><br><small id="stakeSummary">今日投入 0 / 当前100</small></div><button data-action="settle">结束今天</button></div></div>
+</section>
+
+<section id="result" class="screen">
+ <div class="topbar"><div class="brand">DAY SETTLEMENT</div><span class="pill" id="resultDay"></span></div>
+ <div class="resultCard"><div class="sub" style="text-align:center">今日积分变化</div><div class="bigDelta" id="delta">+0</div><div class="stats"><div class="stat"><b id="newBal"></b><span>当前积分</span></div><div class="stat"><b id="todayHit"></b><span>今日命中</span></div><div class="stat"><b id="bestGain"></b><span>最佳一场</span></div></div><div id="resultList" style="margin-top:10px"></div><button class="btn primary" style="width:100%;margin-top:12px" data-action="next-day">继续</button></div>
+</section>
+
+<section id="data" class="screen">
+ <div class="topbar"><button class="smallbtn ghost" data-action="home">返回</button><div class="brand">DATA CENTER</div><span class="pill">V4</span></div>
+ <div class="hero"><h1 style="font-size:28px">真实数据状态</h1><p>把“已有真实数据”和“体验倍率”彻底分开，避免把模拟赔率伪装成历史竞彩数据。</p></div>
+ <div class="dataPanel">
+   <h3>内置数据</h3>
+   <div class="dataRow"><span>世界杯赛程 / 90分钟赛果</span><b>104 / 104</b></div>
+   <div class="dataRow"><span>公开赛前 1X2 赔率</span><b style="color:#0a9870">104 / 104</b></div>
+   <div class="dataRow"><span>国旗</span><b style="color:#0a9870">48 / 48 网页加载</b></div>
+   <div class="dataRow"><span>体彩让球 / 比分 / 总进球 / 半全场固定奖金</span><b id="customCount">待额外导入</b></div>
+   <div class="notice">当前内置的104场1X2是公开赛前市场赔率，不冒充中国竞彩固定奖金。比分、总进球和让球若没有真实历史固定奖金，会明确标注“体验倍率”。</div>
+   <div class="importBox">
+     <div style="font-weight:900;font-size:12px">导入补充赔率 CSV / JSON</div>
+     <div class="sub" style="margin:5px 0 10px">支持 market = wdl / handicap / score / goals / htft；导入后覆盖对应比赛对应玩法，并保存在本机浏览器。</div>
+     <label class="fileLabel" for="fileInput">选择数据文件</label><input id="fileInput" type="file" accept=".csv,.json,text/csv,application/json">
+     <button class="btn ghost" style="width:100%;margin-top:8px" data-action="clear-import">清除自行导入的数据</button>
+   </div>
+ </div>
+ <div class="dataPanel"><h3>移动端说明</h3><div class="notice">GitHub Pages 会以 HTTPS 网页方式运行，iPhone Safari 可正常执行 JavaScript。若国旗网络资源异常，会再改为仓库本地旗帜文件。</div></div>
+</section>
+
+<div class="overlay" id="marketOverlay">
+ <div class="sheet">
+  <div class="sheetTop" id="sheetTop"></div>
+  <div class="sheetHero"><div><img id="sheetHF"><b id="sheetHome"></b></div><div class="v">VS</div><div><img id="sheetAF"><b id="sheetAway"></b></div></div>
+  <div class="sheetScroll" id="sheetScroll"></div>
+  <div class="sheetPick" id="sheetPick">尚未选择</div>
+  <div class="sheetFooter"><button class="closeBtn" data-action="close-sheet">关闭</button><button class="saveBtn" data-action="close-sheet">保存选择</button></div>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+</div>
+
+<script src="data-core.js"></script>
+<script src="data-01.js"></script>
+<script src="data-02.js"></script>
+<script src="data-03.js"></script>
+<script src="data-04.js"></script>
+<script src="data-05.js"></script>
+<script src="data-06.js"></script>
+<script src="data-07.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
