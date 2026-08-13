@@ -1,12 +1,13 @@
-# World Cup Rebirth V4
+# 重生世界杯 V5
 
-手机优先的世界杯重生积分模拟器原型。
+面向玩家的移动端版本：
+- 新开场叙事 + 60 秒记忆挑战
+- 记忆页全程世界杯深色背景，104 场按阶段/日期展示
+- 删除玩家界面的数据中心与开发说明
+- 同一选项再次点击可取消
+- 支持单选 / 双选 / 多选
+- 每个选项计 1 注；本场投入 = 选项数 × 每注积分
+- 31 项完整比分、8 项总进球、让球、半全场结构保留
+- `sporttery-fixed.js` 为历史固定奖金数据层，已接入少量可核验样本；其它赛事仍需继续补齐历史固定奖金
 
-## GitHub Pages 发布
-1. 将本目录全部文件上传到仓库根目录。
-2. GitHub 仓库 Settings -> Pages。
-3. Build and deployment -> Source 选择 Deploy from a branch。
-4. Branch 选择 main，Folder 选择 /(root)，点击 Save。
-5. 等待约 1-3 分钟，页面会显示公开 HTTPS 地址。
-
-测试激活码：WC26-V4-DEMO
+GitHub Pages 只需把这些文件覆盖仓库根目录即可。
