@@ -81,7 +81,7 @@
     <div class="topbar gameBar"><button class="smallbtn glassBtn" data-action="home">首页</button><div class="brand" id="gameBrand">DAY 01</div><span class="pill" id="gameBalance">100分</span></div>
     <div class="gameTop"><h2 id="gameTitle"></h2><p>点击选项即可选择；再次点击同一选项即可取消。可以同时选择多个结果。</p></div>
     <div id="matchList"></div>
-    <div class="bottomAction"><div class="line"><div><b id="selectedSummary">已选 0 场 · 0 注</b><br><small id="stakeSummary">今日投入 0 / 当前 100</small></div><button data-action="settle">结束今天</button></div></div>
+    <div class="bottomAction"><div class="line"><div class="bottomCopy"><b id="selectedSummary">已选 0 场 · 0 注</b><br><small id="stakeSummary">今天可以不出手，直接跳过</small></div><div class="bottomBtns"><button class="allInBtn" data-action="all-in">全部投入</button><button id="settleBtn" data-action="settle">跳过今天</button></div></div></div>
   </section>
 
   <section id="result" class="screen resultScreen">
@@ -90,8 +90,24 @@
       <div class="sub center">今日积分变化</div><div class="bigDelta" id="delta">+0</div>
       <div class="stats"><div class="stat"><b id="newBal"></b><span>当前积分</span></div><div class="stat"><b id="todayHit"></b><span>命中选项</span></div><div class="stat"><b id="bestGain"></b><span>最佳一注</span></div></div>
       <div id="resultList" class="resultList"></div>
-      <button class="btn gold wide" data-action="next-day">进入下一天</button>
+      <button id="nextDayBtn" class="btn gold wide" data-action="next-day">进入下一天</button>
     </div>
+  </section>
+
+  <section id="failure" class="screen world-bg failureScreen">
+    <div class="topbar"><div class="brand"><span class="ball"></span>重生世界杯</div><span class="pill">GAME OVER</span></div>
+    <div class="failureHero">
+      <div class="fallen">👑</div>
+      <div class="chapterNo">THE JOURNEY ENDS HERE</div>
+      <h1>你的积分已经<br>不足 5 分。</h1>
+      <p>世界杯还在继续，但你已经没有足够的积分完成最低一注。</p>
+      <div class="failureBalance"><span>剩余积分</span><b id="failBalance">0</b></div>
+    </div>
+    <div class="glassCard failureStats">
+      <div><b id="failDays">0</b><span>存活天数</span></div>
+      <div><b id="failBest">普通球迷</b><span>历史最高身份</span></div>
+    </div>
+    <div class="screenBottom"><button class="btn gold wide" data-action="restart">重新回到开幕日</button></div>
   </section>
 
   <div class="overlay" id="marketOverlay">

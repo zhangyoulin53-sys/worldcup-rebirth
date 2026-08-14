@@ -26,7 +26,7 @@ let memTimer=null,memLeft=60;
 
 function levelIndex(b){let n=0;LEVELS.forEach((x,i)=>{if(b>=x.min)n=i});return n}
 function currentLevel(){return LEVELS[levelIndex(state.balance)]}
-function pick(mid){return picks[mid]||(picks[mid]={stake:10,selections:{}})}
+function pick(mid){return picks[mid]||(picks[mid]={stake:5,selections:{}})}
 function selectionKey(market,sel){return market+"|"+sel}
 function selections(mid){return Object.values(pick(mid).selections)}
 function isSelected(mid,market,sel){return !!pick(mid).selections[selectionKey(market,sel)]}
@@ -146,9 +146,25 @@ function togglePick(mid,market,sel,label,odds,line=null){
   else p.selections[k]={market,sel,label,odds:+odds,line:line!==null?+line:null};
   if(activeMatch)renderSheet();renderGame();updateDaySummary();
 }
-function setStake(mid,s){const p=pick(mid),v=+s;p.stake=v;if(activeMatch)updateSheetPick();renderGame();updateDaySummary()}
+function setStake(mid,s){const p=pick(mid),v=+s;if(v<5||v%5!==0)return;p.stake=v;if(activeMatch)updateSheetPick();renderGame();updateDaySummary()}
 function currentDayEntries(){const d=DAYS[state.dayIndex],out=[];d.matches.forEach(m=>selections(m.matchId).forEach(s=>out.push({m,s,stake:pick(m.matchId).stake})));return out}
-function updateDaySummary(){const entries=currentDayEntries(),matchCount=new Set(entries.map(x=>x.m.matchId)).size,total=entries.reduce((a,x)=>a+x.stake,0);$("selectedSummary").textContent=`已选 ${matchCount} 场 · ${entries.length} 注`;$("stakeSummary").textContent=`今日投入 ${money(total)} / 当前 ${money(state.balance)}`}
+function allInToday(){
+  const entries=currentDayEntries();
+  if(!entries.length){toast("先选择至少一个结果，再使用全部投入");return}
+  const unit=Math.floor((state.balance/entries.length)/5)*5;
+  if(unit<5){toast(`当前 ${money(state.balance)} 积分不足以覆盖 ${entries.length} 注的最低投入`);return}
+  const mids=[...new Set(entries.map(x=>x.m.matchId))];
+  mids.forEach(mid=>pick(mid).stake=unit);
+  renderGame();updateDaySummary();
+  const total=unit*entries.length,left=Math.round((state.balance-total)*100)/100;
+  toast(`已按每注 ${unit} 积分全部投入，保留 ${money(left)} 积分零头`);
+}
+function updateDaySummary(){
+  const entries=currentDayEntries(),matchCount=new Set(entries.map(x=>x.m.matchId)).size,total=entries.reduce((a,x)=>a+x.stake,0);
+  $("selectedSummary").textContent=`已选 ${matchCount} 场 · ${entries.length} 注`;
+  $("stakeSummary").textContent=entries.length?`今日投入 ${money(total)} / 当前 ${money(state.balance)}`:`今天可以不出手，直接跳过`;
+  const settleBtn=$("settleBtn");if(settleBtn)settleBtn.textContent=entries.length?"结束今天":"跳过今天";
+}
 
 function resultFor(m,s){
   if(s.market==="wdl")return s.sel===m.result90;
@@ -171,7 +187,12 @@ function resultFor(m,s){
 }
 function settle(){
   const entries=currentDayEntries(),start=state.balance,total=entries.reduce((a,x)=>a+x.stake,0);
-  if(!entries.length){toast("今天还没有选择任何结果");return}
+  if(!entries.length){
+    state.alive++;
+    renderResult(DAYS[state.dayIndex],[],0,0,0);
+    show("result");
+    return;
+  }
   if(total>start+1e-9){toast("今日投入超过当前积分，请减少每注积分或取消部分选项");return}
   let delta=0,hit=0,best=-1e9,items=[];
   entries.forEach(x=>{
@@ -185,15 +206,28 @@ function settle(){
   renderResult(DAYS[state.dayIndex],items,delta,hit,best===-1e9?0:best);show("result");
 }
 function renderResult(d,items,delta,hit,best){
-  $("resultDay").textContent=`DAY ${d.dayNo}`;$("delta").textContent=(delta>=0?"+":"")+money(delta);$("delta").className="bigDelta "+(delta<0?"bad":"");$("newBal").textContent=money(state.balance);$("todayHit").textContent=`${hit}/${items.length}`;$("bestGain").textContent=(best>=0?"+":"")+money(best);
-  $("resultList").innerHTML=items.map(x=>`<div class="resultItem"><div><b>${x.m.home} ${x.m.score90[0]}:${x.m.score90[1]} ${x.m.away}</b><p>${x.s.label} · ${money(x.s.odds)} · ${x.stake}积分/注 · ${x.note}</p></div><div class="gain ${x.delta<0?"bad":"good"}">${x.delta>0?"+":""}${money(x.delta)}</div></div>`).join("");
+  $("resultDay").textContent=`DAY ${d.dayNo}`;
+  $("delta").textContent=(delta>=0?"+":"")+money(delta);
+  $("delta").className="bigDelta "+(delta<0?"bad":"");
+  $("newBal").textContent=money(state.balance);
+  $("todayHit").textContent=items.length?`${hit}/${items.length}`:"0 注";
+  $("bestGain").textContent=items.length?(best>=0?"+":"")+money(best):"—";
+  $("resultList").innerHTML=items.length?items.map(x=>`<div class="resultItem"><div><b>${x.m.home} ${x.m.score90[0]}:${x.m.score90[1]} ${x.m.away}</b><p>${x.s.label} · ${money(x.s.odds)} · ${x.stake}积分/注 · ${x.note}</p></div><div class="gain ${x.delta<0?"bad":"good"}">${x.delta>0?"+":""}${money(x.delta)}</div></div>`).join(""):`<div class="skipResult">今天你选择了观望。<br>没有投入，也没有损失。</div>`;
+  const next=$("nextDayBtn");if(next)next.textContent=state.balance<5?"查看旅程结局":"进入下一天";
+}
+function failJourney(){
+  $("failBalance").textContent=money(state.balance);
+  $("failDays").textContent=state.alive;
+  $("failBest").textContent=LEVELS[state.bestLevel]?.name||currentLevel().name;
+  show("failure");
 }
 function nextDay(){
-  if(state.balance<=0){state.balance=50;toast("积分归零，你以街头幸存者身份继续前进")}
+  if(state.balance<5){failJourney();return}
   if(state.dayIndex>=DAYS.length-1){state.dayIndex=0;picks={};toast("世界杯旅程完成，可以再次重生");renderHome();show("home");return}
   state.dayIndex++;renderHome();show("home");
 }
-function enterDay(){clearInterval(memTimer);renderGame();show("game")}
+function restartJourney(){state={balance:100,dayIndex:0,alive:0,hits:0,misses:0,maxBalance:100,bestLevel:1};picks={};renderHome();show("home")}
+function enterDay(){clearInterval(memTimer);if(state.balance<5){failJourney();return}renderGame();show("game")}
 
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-action]");if(!b)return;const a=b.dataset.action;
@@ -207,11 +241,13 @@ document.addEventListener("click",e=>{
   else if(a==="enter-day")enterDay();
   else if(a==="quick"&&!b.disabled)togglePick(b.dataset.mid,"wdl",b.dataset.sel,b.dataset.label,+b.dataset.odds);
   else if(a==="stake")setStake(b.dataset.mid,b.dataset.stake);
+  else if(a==="all-in")allInToday();
   else if(a==="open-sheet")openSheet(b.dataset.mid);
   else if(a==="close-sheet")closeSheet();
   else if(a==="market-pick"&&!b.disabled)togglePick(b.dataset.mid,b.dataset.market,b.dataset.sel,b.dataset.label,+b.dataset.odds,b.dataset.line??null);
   else if(a==="settle")settle();
   else if(a==="next-day")nextDay();
+  else if(a==="restart")restartJourney();
 });
 $("marketOverlay").addEventListener("click",e=>{if(e.target===$("marketOverlay"))closeSheet()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("marketOverlay").classList.contains("open"))closeSheet()});
