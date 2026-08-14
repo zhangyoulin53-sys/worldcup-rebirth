@@ -1,0 +1,33 @@
+match_id,team_a,team_b,final_score_a,final_score_b,outcome,decided_by,pen_a,pen_b,advanced,advanced_team
+m73,South Africa,Canada,0,1,team_b_win,regulation,,,team_b,Canada
+m74,Germany,Paraguay,1,1,draw,penalties,3,4,team_b,Paraguay
+m75,Netherlands,Morocco,1,1,draw,penalties,2,3,team_b,Morocco
+m76,Brazil,Japan,2,1,team_a_win,regulation,,,team_a,Brazil
+m77,Mexico,Ecuador,2,0,team_a_win,regulation,,,team_a,Mexico
+m78,France,Sweden,3,0,team_a_win,regulation,,,team_a,France
+m79,Côte d'Ivoire,Norway,1,2,team_b_win,regulation,,,team_b,Norway
+m80,USA,Bosnia and Herzegovina,2,0,team_a_win,regulation,,,team_a,USA
+m81,Belgium,Senegal,3,2,team_a_win,regulation,,,team_a,Belgium
+m82,England,Congo DR,2,1,team_a_win,regulation,,,team_a,England
+m83,Switzerland,Algeria,2,0,team_a_win,regulation,,,team_a,Switzerland
+m84,Portugal,Croatia,2,1,team_a_win,regulation,,,team_a,Portugal
+m85,Spain,Austria,3,0,team_a_win,regulation,,,team_a,Spain
+m86,Colombia,Ghana,1,0,team_a_win,regulation,,,team_a,Colombia
+m87,Argentina,Cabo Verde,3,2,team_a_win,regulation,,,team_a,Argentina
+m88,Australia,Egypt,1,1,draw,penalties,2,4,team_b,Egypt
+m89,Paraguay,France,0,1,team_b_win,regulation,,,team_b,France
+m90,Canada,Morocco,0,3,team_b_win,regulation,,,team_b,Morocco
+m91,Mexico,England,2,3,team_b_win,regulation,,,team_b,England
+m92,Brazil,Norway,1,2,team_b_win,regulation,,,team_b,Norway
+m93,USA,Belgium,1,4,team_b_win,regulation,,,team_b,Belgium
+m94,Portugal,Spain,0,1,team_b_win,regulation,,,team_b,Spain
+m95,Switzerland,Colombia,0,0,draw,penalties,4,3,team_a,Switzerland
+m96,Argentina,Egypt,3,2,team_a_win,regulation,,,team_a,Argentina
+m97,France,Morocco,2,0,team_a_win,regulation,,,team_a,France
+m98,Spain,Belgium,2,1,team_a_win,regulation,,,team_a,Spain
+m99,Argentina,Switzerland,3,1,team_a_win,regulation,,,team_a,Argentina
+m100,Norway,England,1,2,team_b_win,regulation,,,team_b,England
+m101,France,Spain,0,2,team_b_win,regulation,,,team_b,Spain
+m102,England,Argentina,1,2,team_b_win,regulation,,,team_b,Argentina
+m103,France,England,4,6,team_b_win,regulation,,,team_b,England
+m104,Spain,Argentina,1,0,team_a_win,regulation,,,team_a,Spain

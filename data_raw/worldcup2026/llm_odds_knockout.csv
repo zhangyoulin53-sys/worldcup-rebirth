@@ -1,0 +1,33 @@
+match_id,team_a,team_b,book,source_url,odds_home_raw,odds_draw_raw,odds_away_raw,odds_home_dec,odds_draw_dec,odds_away_dec,imp_home,imp_draw,imp_away,overround
+m73,South Africa,Canada,DraftKings,https://dknetwork.draftkings.com/2026/06/25/opening-odds-for-canada-vs-south-africa-in-the-fifa-2026-world-cup/,5.0,3.55,1.77,5.0,3.55,1.77,0.1911,0.2691,0.5398,1.0467
+m74,Germany,Paraguay,DraftKings,https://dknetwork.draftkings.com/2026/06/27/opening-odds-for-germany-vs-paraguay-in-the-2026-fifa-world-cup-round-of-32/,1.38,5.0,8.5,1.38,5.0,8.5,0.6952,0.1919,0.1129,1.0423
+m75,Netherlands,Morocco,DraftKings,https://dknetwork.draftkings.com/2026/06/26/opening-odds-for-netherlands-vs-morocco-in-the-fifa-2026-world-cup/,2.15,3.3,3.6,2.15,3.3,3.6,0.4447,0.2897,0.2656,1.0459
+m76,Brazil,Japan,DraftKings,https://dknetwork.draftkings.com/2026/06/26/opening-odds-for-brazil-vs-japan-in-the-2026-fifa-world-cup-round-of-32/,1.74,3.8,4.9,1.74,3.8,4.9,0.5516,0.2526,0.1959,1.042
+m77,Mexico,Ecuador,FanDuel (via FOX Sports preview),https://www.foxsports.com/stories/soccer/mexico-vs-ecuador-prediction-odds-picks-world-cup-match,2.25,2.8,4.0,2.25,2.8,4.0,0.4226,0.3396,0.2377,1.0516
+m78,France,Sweden,DraftKings,https://dknetwork.draftkings.com/2026/06/27/opening-odds-for-france-vs-sweden-in-the-2026-fifa-world-cup-round-of-32/,1.3,5.75,10.0,1.3,5.75,10.0,0.7374,0.1667,0.0959,1.0431
+m79,Côte d'Ivoire,Norway,DraftKings,https://dknetwork.draftkings.com/2026/06/27/opening-odds-for-ivory-coast-vs-norway-in-the-fifa-2026-world-cup/,3.65,3.5,2.05,3.65,3.5,2.05,0.2616,0.2728,0.4657,1.0475
+m80,USA,Bosnia and Herzegovina,DraftKings,https://dknetwork.draftkings.com/2026/06/26/opening-odds-for-usa-vs-bosnia-and-herzegovina-in-the-fifa-2026-world-cup/,1.44,4.6,7.5,1.44,4.6,7.5,0.6644,0.208,0.1276,1.0452
+m81,Belgium,Senegal,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-belgium-vs-senegal-in-the-2026-fifa-world-cup-round-of-32/,2.15,3.2,3.7,2.15,3.2,3.7,0.4439,0.2982,0.2579,1.0479
+m82,England,Congo DR,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-england-vs-dr-congo-in-the-2026-fifa-world-cup-round-of-32/,1.27,5.75,13.0,1.27,5.75,13.0,0.7584,0.1675,0.0741,1.0382
+m83,Switzerland,Algeria,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-switzerland-vs-algeria-in-the-2026-fifa-world-cup-round-of-32/,2.05,3.35,4.0,2.05,3.35,4.0,0.4707,0.288,0.2412,1.0363
+m84,Portugal,Croatia,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-portugal-vs-croatia-in-the-2026-fifa-world-cup-round-of-32/,1.8,3.65,4.7,1.8,3.65,4.7,0.533,0.2629,0.2041,1.0423
+m85,Spain,Austria,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-spain-vs-austria-in-the-2026-fifa-world-cup-round-of-32/,1.31,5.25,10.5,1.31,5.25,10.5,0.7277,0.1816,0.0908,1.0491
+m86,Colombia,Ghana,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-colombia-vs-ghana-in-the-2026-fifa-world-cup-round-of-32/,1.54,4.0,7.0,1.54,4.0,7.0,0.6231,0.2399,0.1371,1.0422
+m87,Argentina,Cabo Verde,DraftKings,https://dknetwork.draftkings.com/2026/06/28/opening-odds-for-argentina-vs-cape-verde-in-the-2026-fifa-world-cup-round-of-32/,1.15,8.5,20.0,1.15,8.5,20.0,0.8384,0.1134,0.0482,1.0372
+m88,Australia,Egypt,FanDuel/bet365 (via match previews),https://www.fanduel.com/research/australia-vs-egypt-prediction-picks-lineups-preview-and-best-bets-today-world-cup-2026,3.3,2.9,2.5,3.3,2.9,2.5,0.2892,0.3291,0.3817,1.0479
+m89,Paraguay,France,DraftKings,https://dknetwork.draftkings.com/2026/07/01/opening-odds-for-paraguay-vs-france-in-the-fifa-2026-world-cup/,18.0,7.0,1.18,18.0,7.0,1.18,0.0531,0.1366,0.8103,1.0459
+m90,Canada,Morocco,DraftKings,https://dknetwork.draftkings.com/2026/06/30/opening-odds-for-canada-vs-morocco-in-the-fifa-2026-world-cup/,4.9,3.65,1.77,4.9,3.65,1.77,0.1957,0.2627,0.5417,1.043
+m91,Mexico,England,DraftKings,https://dknetwork.draftkings.com/2026/07/01/opening-odds-for-england-vs-mexico-in-the-fifa-2026-world-cup/,3.45,3.2,2.25,3.45,3.2,2.25,0.2769,0.2985,0.4246,1.0468
+m92,Brazil,Norway,DraftKings,https://dknetwork.draftkings.com/2026/06/30/world-cup-2026-brazil-vs-norway-odds/,1.91,3.6,4.1,1.91,3.6,4.1,0.5009,0.2658,0.2333,1.0452
+m93,USA,Belgium,DraftKings,https://dknetwork.draftkings.com/2026/07/01/world-cup-2026-usa-vs-belgium-opening-odds/,2.6,3.4,2.75,2.6,3.4,2.75,0.369,0.2822,0.3489,1.0424
+m94,Portugal,Spain,DraftKings,https://dknetwork.draftkings.com/2026/07/02/world-cup-2026-spain-vs-portugal-opening-odds/,4.1,3.6,1.91,4.1,3.6,1.91,0.2333,0.2658,0.5009,1.0452
+m95,Switzerland,Colombia,DraftKings,https://dknetwork.draftkings.com/2026/07/04/world-cup-2026-colombia-vs-switzerland-opening-odds/,3.45,3.2,2.2,3.45,3.2,2.2,0.2743,0.2957,0.4301,1.0569
+m96,Argentina,Egypt,DraftKings,https://dknetwork.draftkings.com/2026/07/03/world-cup-2026-argentina-vs-egypt-opening-odds-2/,1.37,4.7,9.0,1.37,4.7,9.0,0.6927,0.2019,0.1054,1.0538
+m97,France,Morocco,DraftKings,https://dknetwork.draftkings.com/2026/07/04/world-cup-2026-france-vs-morocco-opening-odds/,1.57,3.85,6.0,1.57,3.85,6.0,0.599,0.2443,0.1567,1.0633
+m98,Spain,Belgium,DraftKings,https://dknetwork.draftkings.com/2026/07/06/opening-odds-for-spain-vs-belgium-in-the-fifa-world-cup-2026/,1.63,3.9,5.5,1.63,3.9,5.5,0.5833,0.2438,0.1729,1.0517
+m99,Argentina,Switzerland,DraftKings,https://dknetwork.draftkings.com/2026/07/07/opening-odds-for-argentina-vs-switzerland-in-the-fifa-world-cup-2026/,1.69,3.55,5.5,1.69,3.55,5.5,0.5607,0.2669,0.1723,1.0552
+m100,Norway,England,DraftKings,https://dknetwork.draftkings.com/2026/07/05/world-cup-2026-norway-vs-england-opening-odds/,3.8,3.5,1.95,3.8,3.5,1.95,0.2479,0.2691,0.483,1.0617
+m101,France,Spain,DraftKings,https://dknetwork.draftkings.com/2026/07/11/world-cup-2026-france-vs-spain-opening-odds/,2.35,3.25,3.15,2.35,3.25,3.15,0.405,0.2928,0.3021,1.0507
+m102,England,Argentina,DraftKings,https://dknetwork.draftkings.com/2026/07/12/world-cup-2026-argentina-vs-england-opening-odds-2/,2.55,3.0,3.05,2.55,3.0,3.05,0.3723,0.3164,0.3113,1.0534
+m103,France,England,DraftKings,https://dknetwork.draftkings.com/2026/07/15/world-cup-2026-france-vs-england-opening-odds/,2.05,3.55,3.55,2.05,3.55,3.55,0.4641,0.268,0.268,1.0512
+m104,Spain,Argentina,DraftKings,https://dknetwork.draftkings.com/2026/07/19/world-cup-2026-spain-vs-argentina-lineups-odds/,2.25,3.0,3.6,2.25,3.0,3.6,0.4211,0.3158,0.2632,1.0556

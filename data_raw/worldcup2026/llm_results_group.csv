@@ -1,0 +1,73 @@
+match_id,team_a,team_b,final_score_a,final_score_b,outcome
+m01,Mexico,South Africa,2,0,team_a_win
+m02,Korea Republic,Czechia,2,1,team_a_win
+m03,USA,Paraguay,4,1,team_a_win
+m04,Canada,Bosnia and Herzegovina,1,1,draw
+m05,Qatar,Switzerland,1,1,draw
+m06,Brazil,Morocco,1,1,draw
+m07,Haiti,Scotland,0,1,team_b_win
+m08,Australia,Türkiye,2,0,team_a_win
+m09,Germany,Curaçao,7,1,team_a_win
+m10,Netherlands,Japan,2,2,draw
+m11,Côte d'Ivoire,Ecuador,1,0,team_a_win
+m12,Sweden,Tunisia,5,1,team_a_win
+m13,Spain,Cabo Verde,0,0,draw
+m14,IR Iran,New Zealand,2,2,draw
+m15,Saudi Arabia,Uruguay,1,1,draw
+m16,Belgium,Egypt,1,1,draw
+m17,Austria,Jordan,3,1,team_a_win
+m18,France,Senegal,3,1,team_a_win
+m19,Iraq,Norway,1,4,team_b_win
+m20,Argentina,Algeria,3,0,team_a_win
+m21,Portugal,Congo DR,1,1,draw
+m22,England,Croatia,4,2,team_a_win
+m23,Ghana,Panama,1,0,team_a_win
+m24,Uzbekistan,Colombia,1,3,team_b_win
+m25,Mexico,Korea Republic,1,0,team_a_win
+m26,Canada,Qatar,6,0,team_a_win
+m27,Switzerland,Bosnia and Herzegovina,4,1,team_a_win
+m28,Czechia,South Africa,1,1,draw
+m29,USA,Australia,2,0,team_a_win
+m30,Türkiye,Paraguay,0,1,team_b_win
+m31,Brazil,Haiti,3,0,team_a_win
+m32,Scotland,Morocco,0,1,team_b_win
+m33,Tunisia,Japan,0,4,team_b_win
+m34,Ecuador,Curaçao,0,0,draw
+m35,Germany,Côte d'Ivoire,2,1,team_a_win
+m36,Netherlands,Sweden,5,1,team_a_win
+m37,New Zealand,Egypt,1,3,team_b_win
+m38,Uruguay,Cabo Verde,2,2,draw
+m39,Belgium,IR Iran,0,0,draw
+m40,Spain,Saudi Arabia,4,0,team_a_win
+m41,Jordan,Algeria,1,2,team_b_win
+m42,Norway,Senegal,3,2,team_a_win
+m43,France,Iraq,3,0,team_a_win
+m44,Argentina,Austria,2,0,team_a_win
+m45,Colombia,Congo DR,1,0,team_a_win
+m46,Panama,Croatia,0,1,team_b_win
+m47,England,Ghana,0,0,draw
+m48,Portugal,Uzbekistan,5,0,team_a_win
+m49,South Africa,Korea Republic,1,0,team_a_win
+m50,Czechia,Mexico,0,3,team_b_win
+m51,Morocco,Haiti,4,2,team_a_win
+m52,Scotland,Brazil,0,3,team_b_win
+m53,Bosnia and Herzegovina,Qatar,3,1,team_a_win
+m54,Switzerland,Canada,2,1,team_a_win
+m55,Curaçao,Côte d'Ivoire,0,2,team_b_win
+m56,Ecuador,Germany,2,1,team_a_win
+m57,Japan,Sweden,1,1,draw
+m58,Tunisia,Netherlands,1,3,team_b_win
+m59,Türkiye,USA,3,2,team_a_win
+m60,Paraguay,Australia,0,0,draw
+m61,New Zealand,Belgium,1,5,team_b_win
+m62,Egypt,IR Iran,1,1,draw
+m63,Cabo Verde,Saudi Arabia,0,0,draw
+m64,Uruguay,Spain,0,1,team_b_win
+m65,Senegal,Iraq,5,0,team_a_win
+m66,Norway,France,1,4,team_b_win
+m67,Algeria,Austria,3,3,draw
+m68,Jordan,Argentina,1,3,team_b_win
+m69,Colombia,Portugal,0,0,draw
+m70,Congo DR,Uzbekistan,3,1,team_a_win
+m71,Croatia,Ghana,2,1,team_a_win
+m72,Panama,England,0,2,team_b_win

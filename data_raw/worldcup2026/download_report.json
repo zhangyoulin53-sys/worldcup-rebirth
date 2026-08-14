@@ -1,0 +1,121 @@
+{
+  "sources": [
+    {
+      "file": "data_raw/worldcup2026/llm_schedule_group.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/schedule.csv",
+      "bytes": 6031,
+      "sha256": "b22cd1f3dc76f281e062da86cba772e055082a7c63789c0a7d6801e0ca1b723f"
+    },
+    {
+      "file": "data_raw/worldcup2026/llm_results_group.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/results.csv",
+      "bytes": 2582,
+      "sha256": "b382375ef03ee171aa0f9faf0a33f5a738291fb5248b8fb8186528fd1b5a617f"
+    },
+    {
+      "file": "data_raw/worldcup2026/llm_odds_group.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/odds.csv",
+      "bytes": 15898,
+      "sha256": "71a76f38763d9ac136c80e94af43ff1416b6358d4eeaaddc4f2fe4ecbed6e628"
+    },
+    {
+      "file": "data_raw/worldcup2026/llm_schedule_knockout.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/schedule_knockout.csv",
+      "bytes": 2802,
+      "sha256": "94210d99f35a5794ffc946e9ff0c620d834f87c4e0377280a6d050b7f21202b4"
+    },
+    {
+      "file": "data_raw/worldcup2026/llm_results_knockout.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/results_knockout.csv",
+      "bytes": 2125,
+      "sha256": "6998d71ad17820c138216e7cc8bcf5fe5b0064526b25837b731a373d4d23289a"
+    },
+    {
+      "file": "data_raw/worldcup2026/llm_odds_knockout.csv",
+      "url": "https://raw.githubusercontent.com/graphuofm/FIFA2026LLM/main/data/metadata/odds_knockout.csv",
+      "bytes": 6400,
+      "sha256": "2c9b298aad218b49a2146f5bcde1e3c2dd799e35532f158915c88ec5590eba79"
+    },
+    {
+      "file": "data_raw/worldcup2026/hf_matches.csv",
+      "url": "https://huggingface.co/datasets/Mominullptr/fifa-world-cup-2026-dataset/resolve/main/matches.csv?download=true",
+      "bytes": 7644,
+      "sha256": "eb33b01674ec8260a468bb39c965387cd8cb8d7a01e934f5bbcbdafd57c57250"
+    },
+    {
+      "file": "data_raw/worldcup2026/hf_matches_detailed.csv",
+      "url": "https://huggingface.co/datasets/Mominullptr/fifa-world-cup-2026-dataset/resolve/main/matches_detailed.csv?download=true",
+      "bytes": 22227,
+      "sha256": "698a4dad25b3458c18fd5b4ff8829736ee97ec460b2a43df9a5f473fcfc78c2f"
+    },
+    {
+      "file": "data_raw/worldcup2026/hf_match_events.csv",
+      "url": "https://huggingface.co/datasets/Mominullptr/fifa-world-cup-2026-dataset/resolve/main/match_events.csv?download=true",
+      "bytes": 14945,
+      "sha256": "d5e15e0d753d611c78d909b748a645af13144d4295589869e36da45b8205c97b"
+    },
+    {
+      "file": "data_raw/worldcup2026/hf_match_team_stats.csv",
+      "url": "https://huggingface.co/datasets/Mominullptr/fifa-world-cup-2026-dataset/resolve/main/match_team_stats.csv?download=true",
+      "bytes": 11765,
+      "sha256": "19f18d75e1d133abe6e358280e95422115d592a62f48d1b16029197524366f78"
+    },
+    {
+      "file": "data_raw/worldcup2026/hf_teams.csv",
+      "url": "https://huggingface.co/datasets/Mominullptr/fifa-world-cup-2026-dataset/resolve/main/teams.csv?download=true",
+      "bytes": 2382,
+      "sha256": "785dfa98a34f9c7b054426e03485601f0f93a782b129026a1ad4b75af09cef35"
+    }
+  ],
+  "checks": {
+    "llm_schedule_group.csv": {
+      "rows": 72,
+      "expected": 72,
+      "ok": true
+    },
+    "llm_results_group.csv": {
+      "rows": 72,
+      "expected": 72,
+      "ok": true
+    },
+    "llm_odds_group.csv": {
+      "rows": 72,
+      "expected": 72,
+      "ok": true
+    },
+    "llm_schedule_knockout.csv": {
+      "rows": 32,
+      "expected": 32,
+      "ok": true
+    },
+    "llm_results_knockout.csv": {
+      "rows": 32,
+      "expected": 32,
+      "ok": true
+    },
+    "llm_odds_knockout.csv": {
+      "rows": 32,
+      "expected": 32,
+      "ok": true
+    },
+    "hf_matches.csv": {
+      "rows": 104,
+      "expected": 104,
+      "ok": true
+    },
+    "hf_matches_detailed.csv": {
+      "rows": 104,
+      "expected": 104,
+      "ok": true
+    },
+    "market_1x2_104.csv": {
+      "rows": 104,
+      "expected": 104
+    },
+    "schedule_results_104.csv": {
+      "rows": 104,
+      "expected": 104
+    }
+  },
+  "errors": []
+}

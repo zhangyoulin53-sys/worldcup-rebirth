@@ -1,0 +1,33 @@
+match_id,date,weekday,group,team_a,team_b,kickoff,venue,city,stage
+m73,2026-06-28,Sunday,,South Africa,Canada,14:00,Los Angeles Stadium,Los Angeles,round_of_32
+m74,2026-06-29,Monday,,Germany,Paraguay,15:30,Boston Stadium,Boston,round_of_32
+m75,2026-06-29,Monday,,Netherlands,Morocco,20:00,Monterrey Stadium,Monterrey,round_of_32
+m76,2026-06-29,Monday,,Brazil,Japan,12:00,Houston Stadium,Houston,round_of_32
+m77,2026-06-30,Tuesday,,Mexico,Ecuador,20:00,Mexico City Stadium,Mexico City,round_of_32
+m78,2026-06-30,Tuesday,,France,Sweden,16:00,NY/NJ Stadium,New Jersey,round_of_32
+m79,2026-06-30,Tuesday,,Côte d'Ivoire,Norway,12:00,Dallas Stadium,Dallas,round_of_32
+m80,2026-07-01,Wednesday,,USA,Bosnia and Herzegovina,19:00,SF Bay Area Stadium,San Francisco Bay Area,round_of_32
+m81,2026-07-01,Wednesday,,Belgium,Senegal,15:00,Seattle Stadium,Seattle,round_of_32
+m82,2026-07-01,Wednesday,,England,Congo DR,11:00,Atlanta Stadium,Atlanta,round_of_32
+m83,2026-07-02,Thursday,,Switzerland,Algeria,22:00,BC Place Vancouver,Vancouver,round_of_32
+m84,2026-07-02,Thursday,,Portugal,Croatia,18:00,Toronto Stadium,Toronto,round_of_32
+m85,2026-07-02,Thursday,,Spain,Austria,14:00,Los Angeles Stadium,Los Angeles,round_of_32
+m86,2026-07-03,Friday,,Colombia,Ghana,20:30,Kansas City Stadium,Kansas City,round_of_32
+m87,2026-07-03,Friday,,Argentina,Cabo Verde,17:00,Miami Stadium,Miami,round_of_32
+m88,2026-07-03,Friday,,Australia,Egypt,13:00,Dallas Stadium,Dallas,round_of_32
+m89,2026-07-04,Saturday,,Paraguay,France,16:00,Philadelphia Stadium,Philadelphia,round_of_16
+m90,2026-07-04,Saturday,,Canada,Morocco,12:00,Houston Stadium,Houston,round_of_16
+m91,2026-07-05,Sunday,,Mexico,England,19:00,Mexico City Stadium,Mexico City,round_of_16
+m92,2026-07-05,Sunday,,Brazil,Norway,15:00,NY/NJ Stadium,New Jersey,round_of_16
+m93,2026-07-06,Monday,,USA,Belgium,19:00,Seattle Stadium,Seattle,round_of_16
+m94,2026-07-06,Monday,,Portugal,Spain,14:00,Dallas Stadium,Dallas,round_of_16
+m95,2026-07-07,Tuesday,,Switzerland,Colombia,15:00,BC Place Vancouver,Vancouver,round_of_16
+m96,2026-07-07,Tuesday,,Argentina,Egypt,11:00,Atlanta Stadium,Atlanta,round_of_16
+m97,2026-07-09,Thursday,,France,Morocco,15:00,Boston Stadium,Boston,quarter_final
+m98,2026-07-10,Friday,,Spain,Belgium,14:00,Los Angeles Stadium,Los Angeles,quarter_final
+m99,2026-07-11,Saturday,,Argentina,Switzerland,20:00,Kansas City Stadium,Kansas City,quarter_final
+m100,2026-07-11,Saturday,,Norway,England,16:00,Miami Stadium,Miami,quarter_final
+m101,2026-07-14,Tuesday,,France,Spain,14:00,Dallas Stadium,Dallas,semi_final
+m102,2026-07-15,Wednesday,,England,Argentina,14:00,Atlanta Stadium,Atlanta,semi_final
+m103,2026-07-18,Saturday,,France,England,16:00,Miami Stadium,Miami,third_place
+m104,2026-07-19,Sunday,,Spain,Argentina,14:00,NY/NJ Stadium,New Jersey,final
