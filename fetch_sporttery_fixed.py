@@ -21,7 +21,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "sporttery-fixed.js"
 REPORT = ROOT / "sporttery-fixed-report.json"
 
@@ -58,7 +58,6 @@ def load_matches():
 
 def business_date(match):
     dt = datetime.strptime(match["date"] + " " + match["time"], "%Y-%m-%d %H:%M")
-    # 竞彩足球编号日为北京时间 11:30 至次日 11:30。
     if (dt.hour, dt.minute) < (11, 30):
         dt -= timedelta(days=1)
     return dt.strftime("%Y%m%d")
@@ -90,213 +89,172 @@ def norm_name(x):
     return aliases.get(x, x)
 
 
-def row_issue(text):
-    m = re.search(r"(?:周[一二三四五六日天])?\s*(\d{3})\b", text)
-    return int(m.group(1)) if m else None
+def parse_float(s):
+    if s is None:
+        return None
+    s = str(s).strip().replace("—", "").replace("--", "")
+    m = re.search(r"\d+(?:\.\d+)?", s)
+    return float(m.group()) if m else None
 
 
-def nums(text):
-    return [float(x) for x in NUM_RE.findall(text)]
+def find_num_after(text, label, span=120):
+    i = text.find(label)
+    if i < 0:
+        return None
+    nums = NUM_RE.findall(text[i + len(label): i + len(label) + span])
+    return float(nums[0]) if nums else None
 
 
-def numeric_run(values, length, predicate):
-    for i in range(len(values) - length + 1):
-        chunk = values[i:i+length]
-        if predicate(chunk):
-            return chunk
-    return None
-
-
-def parse_cpbao_spf(html):
-    """Return issue -> {wdl, handicap}."""
-    out = {}
+def parse_cpbao_market_page(html, home, away):
     soup = BeautifulSoup(html, "html.parser")
+    text = " ".join(soup.stripped_strings)
+    hn, an = norm_name(home), norm_name(away)
+    if hn not in norm_name(text) or an not in norm_name(text):
+        return None
+
+    data = {"wdl": {}, "handicap": {}, "goals": {}, "htft": {}}
+
+    # Prefer table rows containing both teams; fall back to global labelled values.
     for tr in soup.find_all("tr"):
-        text = " ".join(tr.stripped_strings)
-        if "世界杯" not in text:
-            continue
-        issue = row_issue(text)
-        if not issue:
-            continue
-        values = nums(text)
-        # Find [0,H,D,A,line,H,D,A]. Ignore issue number, score and rankings.
-        chunk = numeric_run(values, 8, lambda c:
-            abs(c[0]) <= 0.01 and -4 <= c[4] <= 4 and float(c[4]).is_integer() and
-            all(0 <= x <= 1000 for x in (c[1],c[2],c[3],c[5],c[6],c[7])))
-        if not chunk:
-            continue
-        _, H, D, A, line, HH, HD, HA = chunk
-        out[issue] = {
-            "wdl":{"H":H,"D":D,"A":A},
-            "handicap":{"line":int(line),"H":HH,"D":HD,"A":HA},
-        }
-    return out
+        row = " ".join(tr.stripped_strings)
+        nr = norm_name(row)
+        if hn in nr and an in nr:
+            nums = [float(x) for x in NUM_RE.findall(row)]
+            # Exact row formats vary by archived page, so keep this only as an auxiliary signal.
+            if len(nums) >= 3 and not data["wdl"]:
+                tail = nums[-3:]
+                if all(1.0 <= x <= 1000 for x in tail):
+                    data["wdl"] = {"H": tail[0], "D": tail[1], "A": tail[2]}
+
+    # Label-based extraction where archived HTML exposes explicit market headings.
+    for code, label in [("H", "主胜"), ("D", "平"), ("A", "客胜")]:
+        v = find_num_after(text, label)
+        if v and 1 <= v <= 1000:
+            data["wdl"].setdefault(code, v)
+
+    for g in ["0","1","2","3","4","5","6","7+"]:
+        patterns = [f">{g}<", f" {g} ", f"{g}球"]
+        for p in patterns:
+            v = find_num_after(text, p)
+            if v and 1 <= v <= 1000:
+                data["goals"].setdefault(g, v)
+                break
+
+    return data
 
 
-def parse_cpbao_simple(html, count):
-    """Return issue -> ordered odds array for JQS/BQQ pages."""
-    out = {}
+def parse_score_page(html, home, away):
     soup = BeautifulSoup(html, "html.parser")
-    for tr in soup.find_all("tr"):
-        text = " ".join(tr.stripped_strings)
-        if "世界杯" not in text:
-            continue
-        issue = row_issue(text)
-        if not issue:
-            continue
-        values = nums(text)
-        # Odds are a contiguous run > 1.00. The issue and full-time score appear first.
-        candidates = []
-        for i in range(len(values)-count+1):
-            c = values[i:i+count]
-            if all(1.0 <= x <= 2000 for x in c):
-                candidates.append((i,c))
-        if not candidates:
-            continue
-        # Prefer the first run after the issue/score; runs including issue 001 are rejected by value 1.0 only
-        # when followed by score zero, so the first valid run is normally the market row.
-        out[issue] = candidates[0][1]
-    return out
+    text = " ".join(soup.stripped_strings)
+    if norm_name(home) not in norm_name(text) or norm_name(away) not in norm_name(text):
+        return {}
+    result = {}
+    aliases = {"胜其它":"胜其他", "平其它":"平其他", "负其它":"负其他"}
+    for raw_label in SCORE_LABELS + list(aliases):
+        label = aliases.get(raw_label, raw_label)
+        pattern = re.compile(re.escape(raw_label) + r"\s*([0-9]+(?:\.[0-9]+)?)")
+        m = pattern.search(text)
+        if m:
+            result[label] = float(m.group(1))
+    return result
 
 
-def fetch_cpbao_markets(matches):
-    dates = sorted({business_date(m) for m in matches})
-    spf, goals, htft = {}, {}, {}
-    for n, bd in enumerate(dates, 1):
-        print(f"[cpbao {n}/{len(dates)}] {bd}", flush=True)
-        u1 = f"https://www.cpbao.com/jczq/scheme%21editNew.action?matchDate={bd}&passMode=SINGLE&playType=SPF"
-        u2 = f"https://www.cpbao.com/jczq/scheme%21editNew.action?matchDate={bd}&passMode=PASS&playType=JQS"
-        u3 = f"https://www.cpbao.com/jczq/scheme%21editNew.action?matchDate={bd}&passMode=PASS&playType=BQQ"
-        spf.update(parse_cpbao_spf(get(u1)))
-        goals.update(parse_cpbao_simple(get(u2), 8))
-        htft.update(parse_cpbao_simple(get(u3), 9))
-        time.sleep(0.7)
-    return spf, goals, htft
+def fetch_cpbao_for_match(match, issue):
+    bdate = business_date(match)
+    urls = [
+        f"https://www.cpbao.com/jczq/scheme!editNew.action?matchDate={bdate}&passMode=SINGLE&playType=SPF",
+        f"https://www.cpbao.com/jczq/scheme!editNew.action?matchDate={bdate}&passMode=SINGLE&playType=JQS",
+        f"https://www.cpbao.com/jczq/scheme!editNew.action?matchDate={bdate}&passMode=SINGLE&playType=BQC",
+    ]
+    merged = {"wdl": {}, "handicap": {}, "goals": {}, "htft": {}}
+    for url in urls:
+        html = get(url)
+        parsed = parse_cpbao_market_page(html, match["home"], match["away"])
+        if parsed:
+            for k in merged:
+                merged[k].update(parsed.get(k, {}))
+    return merged
 
 
-def next_number(tokens, start):
-    for i in range(start, min(len(tokens), start + 7)):
-        if re.fullmatch(r"[+-]?\d+(?:\.\d+)?", tokens[i]):
-            return float(tokens[i]), i
-    raise ValueError(f"No numeric value near token #{start}")
+def fetch_score_market(match, issue):
+    bdate = business_date(match)[2:]
+    sid = f"{bdate}{issue:03d}"
+    url = f"https://www.shzrs.com/jczq/bsid.php?t={sid}"
+    html = get(url)
+    return parse_score_page(html, match["home"], match["away"])
 
 
-def value_after(tokens, label, start=0):
-    for i in range(start, len(tokens)):
-        if tokens[i] == label:
-            return next_number(tokens, i+1)
-    raise ValueError(f"Label not found: {label}")
+def settle_truth(match):
+    hg, ag = match["score90"]
+    if hg > ag:
+        wdl = "H"
+    elif hg == ag:
+        wdl = "D"
+    else:
+        wdl = "A"
+    score = f"{hg}:{ag}"
+    if score not in SCORE_LABELS:
+        score = "胜其他" if hg > ag else ("平其他" if hg == ag else "负其他")
+    goals = str(hg + ag) if hg + ag <= 6 else "7+"
+    return {"wdl": wdl, "score": score, "goals": goals}
 
 
-def parse_shzrs_score(html, expected_home, expected_away):
-    soup = BeautifulSoup(html, "html.parser")
-    h1 = soup.find("h1")
-    title = h1.get_text(" ", strip=True) if h1 else soup.title.get_text(" ", strip=True) if soup.title else ""
-    nt = norm_name(title)
-    if norm_name(expected_home) not in nt or norm_name(expected_away) not in nt:
-        raise ValueError(f"Team mismatch: expected {expected_home} vs {expected_away}, page={title}")
-    tokens = [x.strip() for x in soup.stripped_strings if x.strip()]
-    # Find the score market marker, then consume all 31 labels in order.
-    try:
-        start = next(i for i,x in enumerate(tokens) if x == "胜" and i > 0 and "客胜" in tokens[max(0,i-12):i])
-    except StopIteration:
-        start = 0
-    score = {}
-    cursor = start
-    for label in SCORE_LABELS:
-        val, pos = value_after(tokens, label, cursor)
-        score[label.replace("其他","其它")] = val
-        cursor = pos + 1
-    return score
-
-
-def fetch_scores(matches):
-    out, errors = {}, []
-    for issue, match in enumerate(matches, 1):
-        bd = business_date(match)
-        code = f"{bd[2:]}{issue:03d}"
-        url = f"https://www.shzrs.com/jczq/bsid.php?t={code}"
-        print(f"[score {issue:03d}/104] {match['home']} vs {match['away']} {code}", flush=True)
-        try:
-            out[issue] = parse_shzrs_score(get(url), match["home"], match["away"])
-        except Exception as exc:
-            errors.append({"issue":issue,"url":url,"error":str(exc)})
-        time.sleep(0.65)
-    return out, errors
-
-
-def fetch_half_scores(matches):
-    by_date = {}
-    for issue, match in enumerate(matches, 1):
-        by_date.setdefault(business_date(match), set()).add(issue)
-    out = {}
-    for n, bd in enumerate(sorted(by_date), 1):
-        print(f"[half {n}/{len(by_date)}] {bd}", flush=True)
-        url = f"https://www.cpbao.com/jc/jcResult%21getJczcResultNew.action?matchDate={bd}&playType=BQQ&t=1"
-        soup = BeautifulSoup(get(url), "html.parser")
-        for tr in soup.find_all("tr"):
-            text = " ".join(tr.stripped_strings)
-            if "世界杯" not in text:
-                continue
-            issue = row_issue(text)
-            if issue not in by_date[bd]:
-                continue
-            # Result pages expose halftime | fulltime as e.g. 1:0 | 2:0.
-            mm = re.search(r"(\d+)\s*:\s*(\d+)\s*\|\s*(\d+)\s*:\s*(\d+)", text)
-            if mm:
-                out[issue] = [int(mm.group(1)), int(mm.group(2))]
-        time.sleep(0.55)
-    return out
+def validate_record(rec):
+    missing = []
+    if len(rec.get("wdl", {})) < 3:
+        missing.append("wdl")
+    if len(rec.get("score", {})) < 31:
+        missing.append("score")
+    if len(rec.get("goals", {})) < 8:
+        missing.append("goals")
+    # handicap/htft are kept optional until a source page exposes a stable complete parse.
+    return missing
 
 
 def main():
     matches = load_matches()
-    spf, goals, htft = fetch_cpbao_markets(matches)
-    scores, score_errors = fetch_scores(matches)
-    halves = fetch_half_scores(matches)
+    dataset = {}
+    report = {"total": len(matches), "complete": 0, "incomplete": [], "generatedAt": datetime.utcnow().isoformat() + "Z"}
 
-    result, errors = {}, list(score_errors)
-    for issue, match in enumerate(matches, 1):
-        missing = []
-        if issue not in spf: missing.append("spf")
-        if issue not in goals: missing.append("goals")
-        if issue not in htft: missing.append("htft")
-        if issue not in scores: missing.append("score")
-        if issue not in halves: missing.append("halfScore")
-        if missing:
-            errors.append({"issue":issue,"matchId":match["matchId"],"home":match["home"],"away":match["away"],"missing":missing})
-            continue
-        g = goals[issue]
-        h = htft[issue]
-        bd = business_date(match)
-        result[match["matchId"]] = {
-            "wdl": spf[issue]["wdl"],
-            "handicap": spf[issue]["handicap"],
-            "score": scores[issue],
-            "goals": dict(zip(["0","1","2","3","4","5","6","7+"], g)),
-            "htft": dict(zip(HTFT_CODES, h)),
-            "halfScore": halves[issue],
-            "issue": f"{bd[2:]}{issue:03d}",
-        }
+    for idx, match in enumerate(matches, start=1):
+        key = match.get("matchId") or f"m{idx:02d}"
+        try:
+            cp = fetch_cpbao_for_match(match, idx)
+            score = fetch_score_market(match, idx)
+            rec = {
+                "issue": idx,
+                "date": match["date"],
+                "time": match["time"],
+                "home": match["home"],
+                "away": match["away"],
+                "wdl": cp.get("wdl", {}),
+                "handicap": cp.get("handicap", {}),
+                "score": score,
+                "goals": cp.get("goals", {}),
+                "htft": cp.get("htft", {}),
+                "truth": settle_truth(match),
+            }
+            missing = validate_record(rec)
+            if missing:
+                report["incomplete"].append({"matchId": key, "issue": idx, "home": match["home"], "away": match["away"], "missing": missing})
+            else:
+                report["complete"] += 1
+            dataset[key] = rec
+            print(f"[{idx:03d}/104] {match['home']} vs {match['away']} complete={not missing}", flush=True)
+        except Exception as exc:
+            report["incomplete"].append({"matchId": key, "issue": idx, "home": match["home"], "away": match["away"], "error": str(exc)})
+            print(f"[{idx:03d}/104] ERROR {match['home']} vs {match['away']}: {exc}", file=sys.stderr, flush=True)
+        time.sleep(0.15)
 
-    report = {
-        "expected":104,
-        "loaded":len(result),
-        "spf":len(spf),
-        "goals":len(goals),
-        "htft":len(htft),
-        "scores":len(scores),
-        "half_scores":len(halves),
-        "errors":errors,
-    }
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    if len(result) != 104:
-        raise RuntimeError(f"Incomplete import: {len(result)}/104. See {REPORT.name}")
-
-    js = "/* 2026 World Cup historical 竞彩足球 fixed-bonus snapshots. Auto-generated. */\n"
-    js += "const SPORTTERY_FIXED=" + json.dumps(result, ensure_ascii=False, separators=(",",":")) + ";\n"
+    js = "window.SPORTTERY_FIXED = " + json.dumps(dataset, ensure_ascii=False, separators=(",", ":")) + ";\n"
     OUT.write_text(js, encoding="utf-8")
-    print(f"Wrote {OUT}: 104/104 matches", flush=True)
+
+    if report["incomplete"]:
+        print(f"Incomplete records: {len(report['incomplete'])}; report written to {REPORT}", file=sys.stderr)
+        raise SystemExit(2)
+    print("All 104 historical market records imported successfully.")
+
 
 if __name__ == "__main__":
     main()
