@@ -1,0 +1,1111 @@
+{
+  "total": 104,
+  "downloaded": 88,
+  "failed": 16,
+  "mapping": [
+    {
+      "issue": 1,
+      "matchId": "m01",
+      "home": "墨西哥",
+      "away": "南非",
+      "sid": "260611001",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260611001",
+      "file": "data_raw/sporttery2026/001_260611001_m01.html",
+      "status": "ok"
+    },
+    {
+      "issue": 2,
+      "matchId": "m02",
+      "home": "韩国",
+      "away": "捷克",
+      "sid": "260611002",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260611002",
+      "file": "data_raw/sporttery2026/002_260611002_m02.html",
+      "status": "ok"
+    },
+    {
+      "issue": 3,
+      "matchId": "m04",
+      "home": "加拿大",
+      "away": "波黑",
+      "sid": "260612003",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260612003",
+      "file": "data_raw/sporttery2026/003_260612003_m04.html",
+      "status": "ok"
+    },
+    {
+      "issue": 4,
+      "matchId": "m03",
+      "home": "美国",
+      "away": "巴拉圭",
+      "sid": "260612004",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260612004",
+      "file": "data_raw/sporttery2026/004_260612004_m03.html",
+      "status": "ok"
+    },
+    {
+      "issue": 5,
+      "matchId": "m05",
+      "home": "卡塔尔",
+      "away": "瑞士",
+      "sid": "260613005",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260613005",
+      "file": "data_raw/sporttery2026/005_260613005_m05.html",
+      "status": "ok"
+    },
+    {
+      "issue": 6,
+      "matchId": "m06",
+      "home": "巴西",
+      "away": "摩洛哥",
+      "sid": "260613006",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260613006",
+      "file": "data_raw/sporttery2026/006_260613006_m06.html",
+      "status": "ok"
+    },
+    {
+      "issue": 7,
+      "matchId": "m07",
+      "home": "海地",
+      "away": "苏格兰",
+      "sid": "260613007",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260613007",
+      "file": "data_raw/sporttery2026/007_260613007_m07.html",
+      "status": "ok"
+    },
+    {
+      "issue": 8,
+      "matchId": "m08",
+      "home": "澳大利亚",
+      "away": "土耳其",
+      "sid": "260613008",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260613008",
+      "file": "data_raw/sporttery2026/008_260613008_m08.html",
+      "status": "ok"
+    },
+    {
+      "issue": 9,
+      "matchId": "m09",
+      "home": "德国",
+      "away": "库拉索",
+      "sid": "260614009",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260614009",
+      "file": "data_raw/sporttery2026/009_260614009_m09.html",
+      "status": "ok"
+    },
+    {
+      "issue": 10,
+      "matchId": "m10",
+      "home": "荷兰",
+      "away": "日本",
+      "sid": "260614010",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260614010",
+      "file": "data_raw/sporttery2026/010_260614010_m10.html",
+      "status": "ok"
+    },
+    {
+      "issue": 11,
+      "matchId": "m11",
+      "home": "科特迪瓦",
+      "away": "厄瓜多尔",
+      "sid": "260614011",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260614011",
+      "file": "data_raw/sporttery2026/011_260614011_m11.html",
+      "status": "ok"
+    },
+    {
+      "issue": 12,
+      "matchId": "m12",
+      "home": "瑞典",
+      "away": "突尼斯",
+      "sid": "260614012",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260614012",
+      "file": "data_raw/sporttery2026/012_260614012_m12.html",
+      "status": "ok"
+    },
+    {
+      "issue": 13,
+      "matchId": "m13",
+      "home": "西班牙",
+      "away": "佛得角",
+      "sid": "260615013",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260615013",
+      "file": "data_raw/sporttery2026/013_260615013_m13.html",
+      "status": "ok"
+    },
+    {
+      "issue": 14,
+      "matchId": "m16",
+      "home": "比利时",
+      "away": "埃及",
+      "sid": "260615014",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260615014",
+      "file": "data_raw/sporttery2026/014_260615014_m16.html",
+      "status": "ok"
+    },
+    {
+      "issue": 15,
+      "matchId": "m15",
+      "home": "沙特阿拉伯",
+      "away": "乌拉圭",
+      "sid": "260615015",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260615015",
+      "file": "data_raw/sporttery2026/015_260615015_m15.html",
+      "status": "ok"
+    },
+    {
+      "issue": 16,
+      "matchId": "m14",
+      "home": "伊朗",
+      "away": "新西兰",
+      "sid": "260615016",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260615016",
+      "file": "data_raw/sporttery2026/016_260615016_m14.html",
+      "status": "ok"
+    },
+    {
+      "issue": 17,
+      "matchId": "m18",
+      "home": "法国",
+      "away": "塞内加尔",
+      "sid": "260616017",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260616017",
+      "file": "data_raw/sporttery2026/017_260616017_m18.html",
+      "status": "ok"
+    },
+    {
+      "issue": 18,
+      "matchId": "m19",
+      "home": "伊拉克",
+      "away": "挪威",
+      "sid": "260616018",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260616018",
+      "file": "data_raw/sporttery2026/018_260616018_m19.html",
+      "status": "ok"
+    },
+    {
+      "issue": 19,
+      "matchId": "m20",
+      "home": "阿根廷",
+      "away": "阿尔及利亚",
+      "sid": "260616019",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260616019",
+      "file": "data_raw/sporttery2026/019_260616019_m20.html",
+      "status": "ok"
+    },
+    {
+      "issue": 20,
+      "matchId": "m17",
+      "home": "奥地利",
+      "away": "约旦",
+      "sid": "260616020",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260616020",
+      "file": "data_raw/sporttery2026/020_260616020_m17.html",
+      "status": "ok"
+    },
+    {
+      "issue": 21,
+      "matchId": "m21",
+      "home": "葡萄牙",
+      "away": "刚果（金）",
+      "status": "error",
+      "errors": [
+        "260617021: teams mismatch",
+        "260618021: teams mismatch",
+        "260619021: teams mismatch",
+        "260616021: teams mismatch",
+        "260620021: teams mismatch"
+      ]
+    },
+    {
+      "issue": 22,
+      "matchId": "m22",
+      "home": "英格兰",
+      "away": "克罗地亚",
+      "sid": "260617022",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260617022",
+      "file": "data_raw/sporttery2026/022_260617022_m22.html",
+      "status": "ok"
+    },
+    {
+      "issue": 23,
+      "matchId": "m23",
+      "home": "加纳",
+      "away": "巴拿马",
+      "sid": "260617023",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260617023",
+      "file": "data_raw/sporttery2026/023_260617023_m23.html",
+      "status": "ok"
+    },
+    {
+      "issue": 24,
+      "matchId": "m24",
+      "home": "乌兹别克斯坦",
+      "away": "哥伦比亚",
+      "sid": "260617024",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260617024",
+      "file": "data_raw/sporttery2026/024_260617024_m24.html",
+      "status": "ok"
+    },
+    {
+      "issue": 25,
+      "matchId": "m28",
+      "home": "捷克",
+      "away": "南非",
+      "sid": "260618025",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260618025",
+      "file": "data_raw/sporttery2026/025_260618025_m28.html",
+      "status": "ok"
+    },
+    {
+      "issue": 26,
+      "matchId": "m27",
+      "home": "瑞士",
+      "away": "波黑",
+      "sid": "260618026",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260618026",
+      "file": "data_raw/sporttery2026/026_260618026_m27.html",
+      "status": "ok"
+    },
+    {
+      "issue": 27,
+      "matchId": "m26",
+      "home": "加拿大",
+      "away": "卡塔尔",
+      "sid": "260618027",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260618027",
+      "file": "data_raw/sporttery2026/027_260618027_m26.html",
+      "status": "ok"
+    },
+    {
+      "issue": 28,
+      "matchId": "m25",
+      "home": "墨西哥",
+      "away": "韩国",
+      "sid": "260618028",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260618028",
+      "file": "data_raw/sporttery2026/028_260618028_m25.html",
+      "status": "ok"
+    },
+    {
+      "issue": 29,
+      "matchId": "m29",
+      "home": "美国",
+      "away": "澳大利亚",
+      "sid": "260619029",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260619029",
+      "file": "data_raw/sporttery2026/029_260619029_m29.html",
+      "status": "ok"
+    },
+    {
+      "issue": 30,
+      "matchId": "m32",
+      "home": "苏格兰",
+      "away": "摩洛哥",
+      "sid": "260619030",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260619030",
+      "file": "data_raw/sporttery2026/030_260619030_m32.html",
+      "status": "ok"
+    },
+    {
+      "issue": 31,
+      "matchId": "m31",
+      "home": "巴西",
+      "away": "海地",
+      "sid": "260619031",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260619031",
+      "file": "data_raw/sporttery2026/031_260619031_m31.html",
+      "status": "ok"
+    },
+    {
+      "issue": 32,
+      "matchId": "m30",
+      "home": "土耳其",
+      "away": "巴拉圭",
+      "sid": "260619032",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260619032",
+      "file": "data_raw/sporttery2026/032_260619032_m30.html",
+      "status": "ok"
+    },
+    {
+      "issue": 33,
+      "matchId": "m36",
+      "home": "荷兰",
+      "away": "瑞典",
+      "sid": "260620033",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260620033",
+      "file": "data_raw/sporttery2026/033_260620033_m36.html",
+      "status": "ok"
+    },
+    {
+      "issue": 34,
+      "matchId": "m35",
+      "home": "德国",
+      "away": "科特迪瓦",
+      "sid": "260620034",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260620034",
+      "file": "data_raw/sporttery2026/034_260620034_m35.html",
+      "status": "ok"
+    },
+    {
+      "issue": 35,
+      "matchId": "m34",
+      "home": "厄瓜多尔",
+      "away": "库拉索",
+      "sid": "260620035",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260620035",
+      "file": "data_raw/sporttery2026/035_260620035_m34.html",
+      "status": "ok"
+    },
+    {
+      "issue": 36,
+      "matchId": "m33",
+      "home": "突尼斯",
+      "away": "日本",
+      "sid": "260620036",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260620036",
+      "file": "data_raw/sporttery2026/036_260620036_m33.html",
+      "status": "ok"
+    },
+    {
+      "issue": 37,
+      "matchId": "m40",
+      "home": "西班牙",
+      "away": "沙特阿拉伯",
+      "sid": "260621037",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260621037",
+      "file": "data_raw/sporttery2026/037_260621037_m40.html",
+      "status": "ok"
+    },
+    {
+      "issue": 38,
+      "matchId": "m39",
+      "home": "比利时",
+      "away": "伊朗",
+      "sid": "260621038",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260621038",
+      "file": "data_raw/sporttery2026/038_260621038_m39.html",
+      "status": "ok"
+    },
+    {
+      "issue": 39,
+      "matchId": "m38",
+      "home": "乌拉圭",
+      "away": "佛得角",
+      "sid": "260621039",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260621039",
+      "file": "data_raw/sporttery2026/039_260621039_m38.html",
+      "status": "ok"
+    },
+    {
+      "issue": 40,
+      "matchId": "m37",
+      "home": "新西兰",
+      "away": "埃及",
+      "sid": "260621040",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260621040",
+      "file": "data_raw/sporttery2026/040_260621040_m37.html",
+      "status": "ok"
+    },
+    {
+      "issue": 41,
+      "matchId": "m44",
+      "home": "阿根廷",
+      "away": "奥地利",
+      "sid": "260622041",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260622041",
+      "file": "data_raw/sporttery2026/041_260622041_m44.html",
+      "status": "ok"
+    },
+    {
+      "issue": 42,
+      "matchId": "m43",
+      "home": "法国",
+      "away": "伊拉克",
+      "sid": "260622042",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260622042",
+      "file": "data_raw/sporttery2026/042_260622042_m43.html",
+      "status": "ok"
+    },
+    {
+      "issue": 43,
+      "matchId": "m42",
+      "home": "挪威",
+      "away": "塞内加尔",
+      "sid": "260622043",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260622043",
+      "file": "data_raw/sporttery2026/043_260622043_m42.html",
+      "status": "ok"
+    },
+    {
+      "issue": 44,
+      "matchId": "m41",
+      "home": "约旦",
+      "away": "阿尔及利亚",
+      "sid": "260622044",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260622044",
+      "file": "data_raw/sporttery2026/044_260622044_m41.html",
+      "status": "ok"
+    },
+    {
+      "issue": 45,
+      "matchId": "m48",
+      "home": "葡萄牙",
+      "away": "乌兹别克斯坦",
+      "sid": "260623045",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260623045",
+      "file": "data_raw/sporttery2026/045_260623045_m48.html",
+      "status": "ok"
+    },
+    {
+      "issue": 46,
+      "matchId": "m47",
+      "home": "英格兰",
+      "away": "加纳",
+      "sid": "260623046",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260623046",
+      "file": "data_raw/sporttery2026/046_260623046_m47.html",
+      "status": "ok"
+    },
+    {
+      "issue": 47,
+      "matchId": "m46",
+      "home": "巴拿马",
+      "away": "克罗地亚",
+      "sid": "260623047",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260623047",
+      "file": "data_raw/sporttery2026/047_260623047_m46.html",
+      "status": "ok"
+    },
+    {
+      "issue": 48,
+      "matchId": "m45",
+      "home": "哥伦比亚",
+      "away": "刚果（金）",
+      "status": "error",
+      "errors": [
+        "260623048: teams mismatch",
+        "260624048: teams mismatch",
+        "260625048: teams mismatch",
+        "260622048: teams mismatch",
+        "260626048: teams mismatch"
+      ]
+    },
+    {
+      "issue": 49,
+      "matchId": "m54",
+      "home": "瑞士",
+      "away": "加拿大",
+      "sid": "260624049",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624049",
+      "file": "data_raw/sporttery2026/049_260624049_m54.html",
+      "status": "ok"
+    },
+    {
+      "issue": 50,
+      "matchId": "m53",
+      "home": "波黑",
+      "away": "卡塔尔",
+      "sid": "260624050",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624050",
+      "file": "data_raw/sporttery2026/050_260624050_m53.html",
+      "status": "ok"
+    },
+    {
+      "issue": 51,
+      "matchId": "m52",
+      "home": "苏格兰",
+      "away": "巴西",
+      "sid": "260624051",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624051",
+      "file": "data_raw/sporttery2026/051_260624051_m52.html",
+      "status": "ok"
+    },
+    {
+      "issue": 52,
+      "matchId": "m51",
+      "home": "摩洛哥",
+      "away": "海地",
+      "sid": "260624052",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624052",
+      "file": "data_raw/sporttery2026/052_260624052_m51.html",
+      "status": "ok"
+    },
+    {
+      "issue": 53,
+      "matchId": "m50",
+      "home": "捷克",
+      "away": "墨西哥",
+      "status": "error",
+      "errors": [
+        "260624053: teams mismatch",
+        "260625053: teams mismatch",
+        "260626053: teams mismatch",
+        "260623053: teams mismatch",
+        "260627053: teams mismatch"
+      ]
+    },
+    {
+      "issue": 54,
+      "matchId": "m49",
+      "home": "南非",
+      "away": "韩国",
+      "status": "error",
+      "errors": [
+        "260624054: teams mismatch",
+        "260625054: teams mismatch",
+        "260626054: teams mismatch",
+        "260623054: teams mismatch",
+        "260627054: teams mismatch"
+      ]
+    },
+    {
+      "issue": 55,
+      "matchId": "m56",
+      "home": "厄瓜多尔",
+      "away": "德国",
+      "sid": "260625055",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625055",
+      "file": "data_raw/sporttery2026/055_260625055_m56.html",
+      "status": "ok"
+    },
+    {
+      "issue": 56,
+      "matchId": "m55",
+      "home": "库拉索",
+      "away": "科特迪瓦",
+      "sid": "260625056",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625056",
+      "file": "data_raw/sporttery2026/056_260625056_m55.html",
+      "status": "ok"
+    },
+    {
+      "issue": 57,
+      "matchId": "m58",
+      "home": "突尼斯",
+      "away": "荷兰",
+      "sid": "260625057",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625057",
+      "file": "data_raw/sporttery2026/057_260625057_m58.html",
+      "status": "ok"
+    },
+    {
+      "issue": 58,
+      "matchId": "m57",
+      "home": "日本",
+      "away": "瑞典",
+      "sid": "260625058",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625058",
+      "file": "data_raw/sporttery2026/058_260625058_m57.html",
+      "status": "ok"
+    },
+    {
+      "issue": 59,
+      "matchId": "m59",
+      "home": "土耳其",
+      "away": "美国",
+      "status": "error",
+      "errors": [
+        "260625059: teams mismatch",
+        "260626059: teams mismatch",
+        "260627059: teams mismatch",
+        "260624059: teams mismatch",
+        "260628059: teams mismatch"
+      ]
+    },
+    {
+      "issue": 60,
+      "matchId": "m60",
+      "home": "巴拉圭",
+      "away": "澳大利亚",
+      "status": "error",
+      "errors": [
+        "260625060: teams mismatch",
+        "260626060: teams mismatch",
+        "260627060: teams mismatch",
+        "260624060: teams mismatch",
+        "260628060: teams mismatch"
+      ]
+    },
+    {
+      "issue": 61,
+      "matchId": "m66",
+      "home": "挪威",
+      "away": "法国",
+      "sid": "260626061",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626061",
+      "file": "data_raw/sporttery2026/061_260626061_m66.html",
+      "status": "ok"
+    },
+    {
+      "issue": 62,
+      "matchId": "m65",
+      "home": "塞内加尔",
+      "away": "伊拉克",
+      "sid": "260626062",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626062",
+      "file": "data_raw/sporttery2026/062_260626062_m65.html",
+      "status": "ok"
+    },
+    {
+      "issue": 63,
+      "matchId": "m64",
+      "home": "乌拉圭",
+      "away": "西班牙",
+      "status": "error",
+      "errors": [
+        "260626063: teams mismatch",
+        "260627063: teams mismatch",
+        "260628063: teams mismatch",
+        "260625063: teams mismatch",
+        "260629063: teams mismatch"
+      ]
+    },
+    {
+      "issue": 64,
+      "matchId": "m63",
+      "home": "佛得角",
+      "away": "沙特阿拉伯",
+      "status": "error",
+      "errors": [
+        "260626064: teams mismatch",
+        "260627064: teams mismatch",
+        "260628064: teams mismatch",
+        "260625064: teams mismatch",
+        "260629064: teams mismatch"
+      ]
+    },
+    {
+      "issue": 65,
+      "matchId": "m61",
+      "home": "新西兰",
+      "away": "比利时",
+      "status": "error",
+      "errors": [
+        "260626065: teams mismatch",
+        "260627065: teams mismatch",
+        "260628065: teams mismatch",
+        "260625065: teams mismatch",
+        "260629065: teams mismatch"
+      ]
+    },
+    {
+      "issue": 66,
+      "matchId": "m62",
+      "home": "埃及",
+      "away": "伊朗",
+      "status": "error",
+      "errors": [
+        "260626066: teams mismatch",
+        "260627066: teams mismatch",
+        "260628066: teams mismatch",
+        "260625066: teams mismatch",
+        "260629066: teams mismatch"
+      ]
+    },
+    {
+      "issue": 67,
+      "matchId": "m72",
+      "home": "巴拿马",
+      "away": "英格兰",
+      "status": "error",
+      "errors": [
+        "260627067: teams mismatch",
+        "260628067: teams mismatch",
+        "260629067: teams mismatch",
+        "260626067: teams mismatch",
+        "260630067: teams mismatch"
+      ]
+    },
+    {
+      "issue": 68,
+      "matchId": "m71",
+      "home": "克罗地亚",
+      "away": "加纳",
+      "status": "error",
+      "errors": [
+        "260627068: teams mismatch",
+        "260628068: teams mismatch",
+        "260629068: teams mismatch",
+        "260626068: teams mismatch",
+        "260630068: teams mismatch"
+      ]
+    },
+    {
+      "issue": 69,
+      "matchId": "m69",
+      "home": "哥伦比亚",
+      "away": "葡萄牙",
+      "sid": "260627069",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627069",
+      "file": "data_raw/sporttery2026/069_260627069_m69.html",
+      "status": "ok"
+    },
+    {
+      "issue": 70,
+      "matchId": "m70",
+      "home": "刚果（金）",
+      "away": "乌兹别克斯坦",
+      "status": "error",
+      "errors": [
+        "260627070: teams mismatch",
+        "260628070: teams mismatch",
+        "260629070: teams mismatch",
+        "260626070: teams mismatch",
+        "260630070: teams mismatch"
+      ]
+    },
+    {
+      "issue": 71,
+      "matchId": "m68",
+      "home": "约旦",
+      "away": "阿根廷",
+      "status": "error",
+      "errors": [
+        "260627071: teams mismatch",
+        "260628071: teams mismatch",
+        "260629071: teams mismatch",
+        "260626071: teams mismatch",
+        "260630071: teams mismatch"
+      ]
+    },
+    {
+      "issue": 72,
+      "matchId": "m67",
+      "home": "阿尔及利亚",
+      "away": "奥地利",
+      "status": "error",
+      "errors": [
+        "260627072: teams mismatch",
+        "260628072: teams mismatch",
+        "260629072: teams mismatch",
+        "260626072: teams mismatch",
+        "260630072: teams mismatch"
+      ]
+    },
+    {
+      "issue": 73,
+      "matchId": "m73",
+      "home": "南非",
+      "away": "加拿大",
+      "sid": "260628073",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260628073",
+      "file": "data_raw/sporttery2026/073_260628073_m73.html",
+      "status": "ok"
+    },
+    {
+      "issue": 74,
+      "matchId": "m76",
+      "home": "巴西",
+      "away": "日本",
+      "sid": "260629074",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260629074",
+      "file": "data_raw/sporttery2026/074_260629074_m76.html",
+      "status": "ok"
+    },
+    {
+      "issue": 75,
+      "matchId": "m74",
+      "home": "德国",
+      "away": "巴拉圭",
+      "sid": "260629075",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260629075",
+      "file": "data_raw/sporttery2026/075_260629075_m74.html",
+      "status": "ok"
+    },
+    {
+      "issue": 76,
+      "matchId": "m75",
+      "home": "荷兰",
+      "away": "摩洛哥",
+      "sid": "260629076",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260629076",
+      "file": "data_raw/sporttery2026/076_260629076_m75.html",
+      "status": "ok"
+    },
+    {
+      "issue": 77,
+      "matchId": "m79",
+      "home": "科特迪瓦",
+      "away": "挪威",
+      "sid": "260630077",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260630077",
+      "file": "data_raw/sporttery2026/077_260630077_m79.html",
+      "status": "ok"
+    },
+    {
+      "issue": 78,
+      "matchId": "m78",
+      "home": "法国",
+      "away": "瑞典",
+      "sid": "260630078",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260630078",
+      "file": "data_raw/sporttery2026/078_260630078_m78.html",
+      "status": "ok"
+    },
+    {
+      "issue": 79,
+      "matchId": "m77",
+      "home": "墨西哥",
+      "away": "厄瓜多尔",
+      "sid": "260630079",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260630079",
+      "file": "data_raw/sporttery2026/079_260630079_m77.html",
+      "status": "ok"
+    },
+    {
+      "issue": 80,
+      "matchId": "m82",
+      "home": "英格兰",
+      "away": "刚果（金）",
+      "status": "error",
+      "errors": [
+        "260701080: teams mismatch",
+        "260702080: teams mismatch",
+        "260703080: teams mismatch",
+        "260630080: teams mismatch",
+        "260704080: teams mismatch"
+      ]
+    },
+    {
+      "issue": 81,
+      "matchId": "m81",
+      "home": "比利时",
+      "away": "塞内加尔",
+      "sid": "260701081",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260701081",
+      "file": "data_raw/sporttery2026/081_260701081_m81.html",
+      "status": "ok"
+    },
+    {
+      "issue": 82,
+      "matchId": "m80",
+      "home": "美国",
+      "away": "波黑",
+      "sid": "260701082",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260701082",
+      "file": "data_raw/sporttery2026/082_260701082_m80.html",
+      "status": "ok"
+    },
+    {
+      "issue": 83,
+      "matchId": "m85",
+      "home": "西班牙",
+      "away": "奥地利",
+      "sid": "260702083",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260702083",
+      "file": "data_raw/sporttery2026/083_260702083_m85.html",
+      "status": "ok"
+    },
+    {
+      "issue": 84,
+      "matchId": "m84",
+      "home": "葡萄牙",
+      "away": "克罗地亚",
+      "sid": "260702084",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260702084",
+      "file": "data_raw/sporttery2026/084_260702084_m84.html",
+      "status": "ok"
+    },
+    {
+      "issue": 85,
+      "matchId": "m83",
+      "home": "瑞士",
+      "away": "阿尔及利亚",
+      "sid": "260702085",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260702085",
+      "file": "data_raw/sporttery2026/085_260702085_m83.html",
+      "status": "ok"
+    },
+    {
+      "issue": 86,
+      "matchId": "m88",
+      "home": "澳大利亚",
+      "away": "埃及",
+      "sid": "260703086",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260703086",
+      "file": "data_raw/sporttery2026/086_260703086_m88.html",
+      "status": "ok"
+    },
+    {
+      "issue": 87,
+      "matchId": "m87",
+      "home": "阿根廷",
+      "away": "佛得角",
+      "sid": "260703087",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260703087",
+      "file": "data_raw/sporttery2026/087_260703087_m87.html",
+      "status": "ok"
+    },
+    {
+      "issue": 88,
+      "matchId": "m86",
+      "home": "哥伦比亚",
+      "away": "加纳",
+      "sid": "260703088",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260703088",
+      "file": "data_raw/sporttery2026/088_260703088_m86.html",
+      "status": "ok"
+    },
+    {
+      "issue": 89,
+      "matchId": "m90",
+      "home": "加拿大",
+      "away": "摩洛哥",
+      "sid": "260704089",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260704089",
+      "file": "data_raw/sporttery2026/089_260704089_m90.html",
+      "status": "ok"
+    },
+    {
+      "issue": 90,
+      "matchId": "m89",
+      "home": "巴拉圭",
+      "away": "法国",
+      "sid": "260704090",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260704090",
+      "file": "data_raw/sporttery2026/090_260704090_m89.html",
+      "status": "ok"
+    },
+    {
+      "issue": 91,
+      "matchId": "m92",
+      "home": "巴西",
+      "away": "挪威",
+      "sid": "260705091",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260705091",
+      "file": "data_raw/sporttery2026/091_260705091_m92.html",
+      "status": "ok"
+    },
+    {
+      "issue": 92,
+      "matchId": "m91",
+      "home": "墨西哥",
+      "away": "英格兰",
+      "sid": "260705092",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260705092",
+      "file": "data_raw/sporttery2026/092_260705092_m91.html",
+      "status": "ok"
+    },
+    {
+      "issue": 93,
+      "matchId": "m94",
+      "home": "葡萄牙",
+      "away": "西班牙",
+      "sid": "260706093",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260706093",
+      "file": "data_raw/sporttery2026/093_260706093_m94.html",
+      "status": "ok"
+    },
+    {
+      "issue": 94,
+      "matchId": "m93",
+      "home": "美国",
+      "away": "比利时",
+      "sid": "260706094",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260706094",
+      "file": "data_raw/sporttery2026/094_260706094_m93.html",
+      "status": "ok"
+    },
+    {
+      "issue": 95,
+      "matchId": "m96",
+      "home": "阿根廷",
+      "away": "埃及",
+      "sid": "260707095",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260707095",
+      "file": "data_raw/sporttery2026/095_260707095_m96.html",
+      "status": "ok"
+    },
+    {
+      "issue": 96,
+      "matchId": "m95",
+      "home": "瑞士",
+      "away": "哥伦比亚",
+      "sid": "260707096",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260707096",
+      "file": "data_raw/sporttery2026/096_260707096_m95.html",
+      "status": "ok"
+    },
+    {
+      "issue": 97,
+      "matchId": "m97",
+      "home": "法国",
+      "away": "摩洛哥",
+      "sid": "260709097",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260709097",
+      "file": "data_raw/sporttery2026/097_260709097_m97.html",
+      "status": "ok"
+    },
+    {
+      "issue": 98,
+      "matchId": "m98",
+      "home": "西班牙",
+      "away": "比利时",
+      "sid": "260710098",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260710098",
+      "file": "data_raw/sporttery2026/098_260710098_m98.html",
+      "status": "ok"
+    },
+    {
+      "issue": 99,
+      "matchId": "m100",
+      "home": "挪威",
+      "away": "英格兰",
+      "sid": "260711099",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260711099",
+      "file": "data_raw/sporttery2026/099_260711099_m100.html",
+      "status": "ok"
+    },
+    {
+      "issue": 100,
+      "matchId": "m99",
+      "home": "阿根廷",
+      "away": "瑞士",
+      "sid": "260711100",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260711100",
+      "file": "data_raw/sporttery2026/100_260711100_m99.html",
+      "status": "ok"
+    },
+    {
+      "issue": 101,
+      "matchId": "m101",
+      "home": "法国",
+      "away": "西班牙",
+      "sid": "260714101",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260714101",
+      "file": "data_raw/sporttery2026/101_260714101_m101.html",
+      "status": "ok"
+    },
+    {
+      "issue": 102,
+      "matchId": "m102",
+      "home": "英格兰",
+      "away": "阿根廷",
+      "sid": "260715102",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260715102",
+      "file": "data_raw/sporttery2026/102_260715102_m102.html",
+      "status": "ok"
+    },
+    {
+      "issue": 103,
+      "matchId": "m103",
+      "home": "法国",
+      "away": "英格兰",
+      "sid": "260718103",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260718103",
+      "file": "data_raw/sporttery2026/103_260718103_m103.html",
+      "status": "ok"
+    },
+    {
+      "issue": 104,
+      "matchId": "m104",
+      "home": "西班牙",
+      "away": "阿根廷",
+      "sid": "260719104",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260719104",
+      "file": "data_raw/sporttery2026/104_260719104_m104.html",
+      "status": "ok"
+    }
+  ]
+}
