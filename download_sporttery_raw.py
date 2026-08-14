@@ -21,6 +21,15 @@ SESSION.headers.update({
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.7",
 })
 
+# Canonical aliases used by our app and the historical site.
+ALIASES = [
+    ("刚果民主共和国", "刚果金"), ("民主刚果", "刚果金"), ("刚果（金）", "刚果金"), ("刚果(金)", "刚果金"),
+    ("沙特阿拉伯", "沙特"), ("波斯尼亚和黑塞哥维那", "波黑"),
+    ("捷克共和国", "捷克"), ("韩国共和国", "韩国"),
+    ("佛得角共和国", "佛得角"), ("科特迪瓦共和国", "科特迪瓦"),
+    ("阿尔及利", "阿尔及利亚"),
+]
+
 
 def load_matches():
     days = []
@@ -38,23 +47,17 @@ def load_matches():
     return matches
 
 
-def norm_name(x):
+def canonical_text(x):
     x = str(x).replace("（", "(").replace("）", ")")
+    for src, dst in ALIASES:
+        x = x.replace(src, dst)
     x = re.sub(r"[\s()（）·.\-]", "", x)
-    aliases = {
-        "刚果民主共和国":"刚果金", "民主刚果":"刚果金", "刚果(金)":"刚果金", "刚果（金）":"刚果金",
-        "沙特阿拉伯":"沙特", "波斯尼亚和黑塞哥维那":"波黑", "波黑":"波黑",
-        "阿尔及利":"阿尔及利亚", "捷克共和国":"捷克", "韩国共和国":"韩国",
-        "佛得角共和国":"佛得角", "科特迪瓦共和国":"科特迪瓦",
-    }
-    return aliases.get(x, x)
+    return x
 
 
 def candidate_dates(match):
     dt = datetime.strptime(match["date"] + " " + match["time"], "%Y-%m-%d %H:%M")
     dates = []
-
-    # Chinese Sports Lottery business-day convention: early kickoffs usually belong to previous issue day.
     biz = dt - timedelta(days=1) if (dt.hour, dt.minute) < (11, 30) else dt
     for x in [biz, dt, dt - timedelta(days=1), dt + timedelta(days=1), dt - timedelta(days=2), dt + timedelta(days=2)]:
         s = x.strftime("%y%m%d")
@@ -63,11 +66,22 @@ def candidate_dates(match):
     return dates
 
 
-def get_html(url, tries=3):
+def candidate_issues(idx):
+    # World Cup issue numbers mostly follow tournament order. Simultaneous final
+    # group matches can be reordered within a small block, so search nearby IDs.
+    out = [idx]
+    for delta in range(1, 7):
+        for n in (idx - delta, idx + delta):
+            if 1 <= n <= 104 and n not in out:
+                out.append(n)
+    return out
+
+
+def get_html(url, tries=2):
     last = None
     for attempt in range(tries):
         try:
-            r = SESSION.get(url, timeout=20)
+            r = SESSION.get(url, timeout=16)
             if r.status_code == 200:
                 if not r.encoding or r.encoding.lower() == "iso-8859-1":
                     r.encoding = r.apparent_encoding or "utf-8"
@@ -75,28 +89,44 @@ def get_html(url, tries=3):
             last = RuntimeError(f"HTTP {r.status_code}")
         except requests.RequestException as exc:
             last = exc
-        time.sleep(0.5 + attempt)
+        time.sleep(0.35 + attempt * 0.5)
     raise RuntimeError(str(last))
 
 
 def page_matches(html, home, away):
     text = " ".join(BeautifulSoup(html, "html.parser").stripped_strings)
-    nt = norm_name(text)
-    return norm_name(home) in nt and norm_name(away) in nt
+    nt = canonical_text(text)
+    return canonical_text(home) in nt and canonical_text(away) in nt
 
 
 def fetch_one(idx, match):
     errors = []
-    for d in candidate_dates(match):
-        sid = f"{d}{idx:03d}"
+    dates = candidate_dates(match)
+    issues = candidate_issues(idx)
+
+    # Fast path: expected issue number across likely dates.
+    candidates = [(d, idx) for d in dates]
+    # Fallback: nearby issue numbers across the same date window.
+    candidates.extend((d, issue) for issue in issues[1:] for d in dates)
+
+    seen = set()
+    for d, issue in candidates:
+        sid = f"{d}{issue:03d}"
+        if sid in seen:
+            continue
+        seen.add(sid)
         url = f"https://www.shzrs.com/jczq/bsid.php?t={sid}"
         try:
             html = get_html(url)
             if page_matches(html, match["home"], match["away"]):
+                # Remove stale raw page for this tournament position if a prior run mapped it differently.
+                for old in OUT.glob(f"{idx:03d}_*_*.html"):
+                    old.unlink(missing_ok=True)
                 filename = f"{idx:03d}_{sid}_{match['matchId']}.html"
                 (OUT / filename).write_text(html, encoding="utf-8")
                 return {
-                    "issue": idx,
+                    "tournamentOrder": idx,
+                    "sportteryIssue": issue,
                     "matchId": match["matchId"],
                     "home": match["home"],
                     "away": match["away"],
@@ -105,11 +135,13 @@ def fetch_one(idx, match):
                     "file": str((OUT / filename).relative_to(ROOT)),
                     "status": "ok",
                 }
-            errors.append(f"{sid}: teams mismatch")
+            if len(errors) < 20:
+                errors.append(f"{sid}: teams mismatch")
         except Exception as exc:
-            errors.append(f"{sid}: {exc}")
+            if len(errors) < 20:
+                errors.append(f"{sid}: {exc}")
     return {
-        "issue": idx,
+        "tournamentOrder": idx,
         "matchId": match["matchId"],
         "home": match["home"],
         "away": match["away"],
@@ -131,20 +163,14 @@ def main():
 
     ok = [x for x in mapping if x and x["status"] == "ok"]
     bad = [x for x in mapping if not x or x["status"] != "ok"]
-    report = {
-        "total": len(matches),
-        "downloaded": len(ok),
-        "failed": len(bad),
-        "mapping": mapping,
-    }
+    report = {"total": len(matches), "downloaded": len(ok), "failed": len(bad), "mapping": mapping}
     (OUT / "mapping.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # Compact CSV-like TSV is useful for manual inspection in GitHub.
-    lines = ["issue\tmatchId\thome\taway\tsid\turl\tstatus"]
+    lines = ["tournamentOrder\tsportteryIssue\tmatchId\thome\taway\tsid\turl\tstatus"]
     for x in mapping:
         lines.append("\t".join([
-            str(x.get("issue", "")), x.get("matchId", ""), x.get("home", ""), x.get("away", ""),
-            x.get("sid", ""), x.get("url", ""), x.get("status", ""),
+            str(x.get("tournamentOrder", "")), str(x.get("sportteryIssue", "")), x.get("matchId", ""),
+            x.get("home", ""), x.get("away", ""), x.get("sid", ""), x.get("url", ""), x.get("status", ""),
         ]))
     (OUT / "mapping.tsv").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
