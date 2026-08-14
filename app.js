@@ -11,6 +11,7 @@ const HOME_SCORES=["1:0","2:0","2:1","3:0","3:1","3:2","4:0","4:1","4:2","5:0","
 const DRAW_SCORES=["0:0","1:1","2:2","3:3"];
 const AWAY_SCORES=["0:1","0:2","1:2","0:3","1:3","2:3","0:4","1:4","2:4","0:5","1:5","2:5"];
 const HTFT_LABEL={HH:"胜胜",HD:"胜平",HA:"胜负",DH:"平胜",DD:"平平",DA:"平负",AH:"负胜",AD:"负平",AA:"负负"};
+const BASE_UNIT=2;
 const $=id=>document.getElementById(id);
 
 function safeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -26,7 +27,7 @@ let memTimer=null,memLeft=60;
 
 function levelIndex(b){let n=0;LEVELS.forEach((x,i)=>{if(b>=x.min)n=i});return n}
 function currentLevel(){return LEVELS[levelIndex(state.balance)]}
-function pick(mid){return picks[mid]||(picks[mid]={stake:5,selections:{}})}
+function pick(mid){return picks[mid]||(picks[mid]={stake:BASE_UNIT,selections:{}})}
 function selectionKey(market,sel){return market+"|"+sel}
 function selections(mid){return Object.values(pick(mid).selections)}
 function isSelected(mid,market,sel){return !!pick(mid).selections[selectionKey(market,sel)]}
@@ -99,13 +100,24 @@ function quick(m,sel,label,odds){
     data-action="quick" data-mid="${m.matchId}" data-sel="${sel}" data-label="${label}" data-odds="${valid?odds:""}"><b>${label}</b><small>${valid?money(odds):"--"}</small></button>`;
 }
 function matchCard(m){
-  const o=fixedWdl(m),p=pick(m.matchId),count=selections(m.matchId).length,cost=count*p.stake;
+  const o=fixedWdl(m),p=pick(m.matchId),count=selections(m.matchId).length,cost=count*p.stake,mult=Math.max(1,Math.round(p.stake/BASE_UNIT));
   return `<div class="matchCard">
     <div class="matchHeader"><b>${m.group||m.stage}</b><span>${m.time}</span></div>
     <div class="teams"><div><img class="teamFlag" src="${FLAG_DATA[m.home]}" alt="${m.home}"><div class="teamName">${m.home}</div></div><div class="vs">VS</div><div><img class="teamFlag" src="${FLAG_DATA[m.away]}" alt="${m.away}"><div class="teamName">${m.away}</div></div></div>
     <div class="odds3">${quick(m,"H","主胜",o?.H)}${quick(m,"D","平",o?.D)}${quick(m,"A","客胜",o?.A)}</div>
-    <div class="matchFoot"><div class="pickSummary">${count?`本场已选 <b>${count}</b> 注 · 本场投入 <b>${money(cost)}</b> 积分`:(o?"选择一个或多个结果；再次点击即可取消":"本场固定奖金暂未载入")}</div><button class="expand" data-action="open-sheet" data-mid="${m.matchId}">更多玩法</button></div>
-    <div class="perBet"><div class="perBetTitle">每注积分</div><div class="stakes">${[5,10,20,50].map(s=>`<button class="stake ${p.stake===s?"selected":""}" data-action="stake" data-mid="${m.matchId}" data-stake="${s}">${s}</button>`).join("")}</div></div>
+    <div class="matchFoot"><div class="pickSummary">${count?`本场已选 <b>${count}</b> 注 · ${BASE_UNIT}积分/注 × <b>${mult}</b>倍 · 本场投入 <b>${money(cost)}</b> 积分`:(o?"选择一个或多个结果；再次点击即可取消":"本场固定奖金暂未载入")}</div><button class="expand" data-action="open-sheet" data-mid="${m.matchId}">更多玩法</button></div>
+    <div class="perBet">
+      <div class="perBetTitle">本场倍数 <span>${BASE_UNIT} 积分 / 注</span></div>
+      <div class="multiplierRow">
+        <div class="multiplierControl">
+          <button class="multBtn" data-action="mult-minus" data-mid="${m.matchId}">−</button>
+          <input class="multInput" inputmode="numeric" pattern="[0-9]*" data-mid="${m.matchId}" value="${mult}" aria-label="本场倍数">
+          <button class="multBtn" data-action="mult-plus" data-mid="${m.matchId}">＋</button>
+        </div>
+        <div class="quickMult">${[1,5,10,20].map(v=>`<button class="multPreset ${mult===v?"selected":""}" data-action="mult-set" data-mid="${m.matchId}" data-mult="${v}">${v}倍</button>`).join("")}</div>
+        <button class="matchAllIn ${count?"":"disabled"}" data-action="all-in-match" data-mid="${m.matchId}" ${count?"":"disabled"}>本场全投</button>
+      </div>
+    </div>
   </div>`;
 }
 function renderGame(){
@@ -136,28 +148,44 @@ function renderSheet(){
 }
 function updateSheetPick(){
   if(!activeMatch)return;
-  const p=pick(activeMatch.matchId),ss=selections(activeMatch.matchId);
-  $("sheetPick").innerHTML=ss.length?`已选 <b>${ss.length}</b> 注 · 每注 <b>${p.stake}</b> 积分 · 本场投入 <b>${money(ss.length*p.stake)}</b> 积分<br><span>再次点击已选项即可取消。</span>`:"尚未选择。支持单选、双选和多选。";
+  const p=pick(activeMatch.matchId),ss=selections(activeMatch.matchId),mult=Math.max(1,Math.round(p.stake/BASE_UNIT));
+  $("sheetPick").innerHTML=ss.length?`已选 <b>${ss.length}</b> 注 · ${BASE_UNIT}积分/注 × <b>${mult}</b>倍 · 本场投入 <b>${money(ss.length*p.stake)}</b> 积分<br><span>再次点击已选项即可取消；倍数可在比赛卡片中单独调整。</span>`:"尚未选择。支持单选、双选和多选。";
 }
 function togglePick(mid,market,sel,label,odds,line=null){
   if(!Number.isFinite(+odds)||+odds<=0)return;
   const p=pick(mid),k=selectionKey(market,sel);
   if(p.selections[k])delete p.selections[k];
-  else p.selections[k]={market,sel,label,odds:+odds,line:line!==null?+line:null};
+  else{
+    p.selections[k]={market,sel,label,odds:+odds,line:line!==null?+line:null};
+    const max=maxAffordableMultiplier(mid);
+    if(max<1){delete p.selections[k];toast("当前积分不足以增加这一注");return}
+    const cur=Math.max(1,Math.round(p.stake/BASE_UNIT));
+    if(cur>max){p.stake=BASE_UNIT*max;toast(`本场倍数已自动调整为 ${max} 倍`)}
+  }
   if(activeMatch)renderSheet();renderGame();updateDaySummary();
 }
-function setStake(mid,s){const p=pick(mid),v=+s;if(v<5||v%5!==0)return;p.stake=v;if(activeMatch)updateSheetPick();renderGame();updateDaySummary()}
 function currentDayEntries(){const d=DAYS[state.dayIndex],out=[];d.matches.forEach(m=>selections(m.matchId).forEach(s=>out.push({m,s,stake:pick(m.matchId).stake})));return out}
-function allInToday(){
-  const entries=currentDayEntries();
-  if(!entries.length){toast("先选择至少一个结果，再使用全部投入");return}
-  const unit=Math.floor((state.balance/entries.length)/5)*5;
-  if(unit<5){toast(`当前 ${money(state.balance)} 积分不足以覆盖 ${entries.length} 注的最低投入`);return}
-  const mids=[...new Set(entries.map(x=>x.m.matchId))];
-  mids.forEach(mid=>pick(mid).stake=unit);
-  renderGame();updateDaySummary();
-  const total=unit*entries.length,left=Math.round((state.balance-total)*100)/100;
-  toast(`已按每注 ${unit} 积分全部投入，保留 ${money(left)} 积分零头`);
+function currentDayTotal(excludeMid=null){return currentDayEntries().filter(x=>!excludeMid||x.m.matchId!==excludeMid).reduce((a,x)=>a+x.stake,0)}
+function maxAffordableMultiplier(mid){
+  const count=selections(mid).length;if(!count)return 9999;
+  const other=currentDayTotal(mid),available=Math.max(0,state.balance-other);
+  return Math.floor(available/(BASE_UNIT*count));
+}
+function setMultiplier(mid,mult,quiet=false){
+  const p=pick(mid);let v=Math.floor(Number(mult));if(!Number.isFinite(v)||v<1)v=1;if(v>9999)v=9999;
+  const max=maxAffordableMultiplier(mid);
+  if(selections(mid).length&&max<1){if(!quiet)toast("当前积分不足以覆盖本场最低一注");return false}
+  if(selections(mid).length&&v>max){v=max;if(!quiet)toast(`本场最多可设为 ${max} 倍`)}
+  p.stake=BASE_UNIT*v;
+  if(activeMatch)updateSheetPick();renderGame();updateDaySummary();return true;
+}
+function changeMultiplier(mid,delta){const p=pick(mid),cur=Math.max(1,Math.round(p.stake/BASE_UNIT));setMultiplier(mid,cur+delta)}
+function allInMatch(mid){
+  const count=selections(mid).length;if(!count){toast("先在本场选择至少一个结果");return}
+  const max=maxAffordableMultiplier(mid);if(max<1){toast("剩余积分不足本场最低一注");return}
+  setMultiplier(mid,max,true);
+  const total=count*BASE_UNIT*max,left=Math.round((state.balance-currentDayTotal(mid)-total)*100)/100;
+  toast(`本场已设为 ${max} 倍，投入 ${money(total)} 积分，剩余 ${money(Math.max(0,left))}`);
 }
 function updateDaySummary(){
   const entries=currentDayEntries(),matchCount=new Set(entries.map(x=>x.m.matchId)).size,total=entries.reduce((a,x)=>a+x.stake,0);
@@ -213,7 +241,7 @@ function renderResult(d,items,delta,hit,best){
   $("todayHit").textContent=items.length?`${hit}/${items.length}`:"0 注";
   $("bestGain").textContent=items.length?(best>=0?"+":"")+money(best):"—";
   $("resultList").innerHTML=items.length?items.map(x=>`<div class="resultItem"><div><b>${x.m.home} ${x.m.score90[0]}:${x.m.score90[1]} ${x.m.away}</b><p>${x.s.label} · ${money(x.s.odds)} · ${x.stake}积分/注 · ${x.note}</p></div><div class="gain ${x.delta<0?"bad":"good"}">${x.delta>0?"+":""}${money(x.delta)}</div></div>`).join(""):`<div class="skipResult">今天你选择了观望。<br>没有投入，也没有损失。</div>`;
-  const next=$("nextDayBtn");if(next)next.textContent=state.balance<5?"查看旅程结局":"进入下一天";
+  const next=$("nextDayBtn");if(next)next.textContent=state.balance<BASE_UNIT?"查看旅程结局":"进入下一天";
 }
 function failJourney(){
   $("failBalance").textContent=money(state.balance);
@@ -222,12 +250,12 @@ function failJourney(){
   show("failure");
 }
 function nextDay(){
-  if(state.balance<5){failJourney();return}
+  if(state.balance<BASE_UNIT){failJourney();return}
   if(state.dayIndex>=DAYS.length-1){state.dayIndex=0;picks={};toast("世界杯旅程完成，可以再次重生");renderHome();show("home");return}
   state.dayIndex++;renderHome();show("home");
 }
 function restartJourney(){state={balance:100,dayIndex:0,alive:0,hits:0,misses:0,maxBalance:100,bestLevel:1};picks={};renderHome();show("home")}
-function enterDay(){clearInterval(memTimer);if(state.balance<5){failJourney();return}renderGame();show("game")}
+function enterDay(){clearInterval(memTimer);if(state.balance<BASE_UNIT){failJourney();return}renderGame();show("game")}
 
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-action]");if(!b)return;const a=b.dataset.action;
@@ -240,14 +268,20 @@ document.addEventListener("click",e=>{
   else if(a==="home"){renderHome();show("home")}
   else if(a==="enter-day")enterDay();
   else if(a==="quick"&&!b.disabled)togglePick(b.dataset.mid,"wdl",b.dataset.sel,b.dataset.label,+b.dataset.odds);
-  else if(a==="stake")setStake(b.dataset.mid,b.dataset.stake);
-  else if(a==="all-in")allInToday();
+  else if(a==="mult-minus")changeMultiplier(b.dataset.mid,-1);
+  else if(a==="mult-plus")changeMultiplier(b.dataset.mid,1);
+  else if(a==="mult-set")setMultiplier(b.dataset.mid,b.dataset.mult);
+  else if(a==="all-in-match")allInMatch(b.dataset.mid);
   else if(a==="open-sheet")openSheet(b.dataset.mid);
   else if(a==="close-sheet")closeSheet();
   else if(a==="market-pick"&&!b.disabled)togglePick(b.dataset.mid,b.dataset.market,b.dataset.sel,b.dataset.label,+b.dataset.odds,b.dataset.line??null);
   else if(a==="settle")settle();
   else if(a==="next-day")nextDay();
   else if(a==="restart")restartJourney();
+});
+document.addEventListener("change",e=>{
+  const input=e.target.closest?.(".multInput");if(!input)return;
+  setMultiplier(input.dataset.mid,input.value);
 });
 $("marketOverlay").addEventListener("click",e=>{if(e.target===$("marketOverlay"))closeSheet()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("marketOverlay").classList.contains("open"))closeSheet()});
