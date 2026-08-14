@@ -1,10 +1,11 @@
 {
   "total": 104,
-  "downloaded": 88,
-  "failed": 16,
+  "downloaded": 104,
+  "failed": 0,
   "mapping": [
     {
-      "issue": 1,
+      "tournamentOrder": 1,
+      "sportteryIssue": 1,
       "matchId": "m01",
       "home": "墨西哥",
       "away": "南非",
@@ -14,7 +15,8 @@
       "status": "ok"
     },
     {
-      "issue": 2,
+      "tournamentOrder": 2,
+      "sportteryIssue": 2,
       "matchId": "m02",
       "home": "韩国",
       "away": "捷克",
@@ -24,7 +26,8 @@
       "status": "ok"
     },
     {
-      "issue": 3,
+      "tournamentOrder": 3,
+      "sportteryIssue": 3,
       "matchId": "m04",
       "home": "加拿大",
       "away": "波黑",
@@ -34,7 +37,8 @@
       "status": "ok"
     },
     {
-      "issue": 4,
+      "tournamentOrder": 4,
+      "sportteryIssue": 4,
       "matchId": "m03",
       "home": "美国",
       "away": "巴拉圭",
@@ -44,7 +48,8 @@
       "status": "ok"
     },
     {
-      "issue": 5,
+      "tournamentOrder": 5,
+      "sportteryIssue": 5,
       "matchId": "m05",
       "home": "卡塔尔",
       "away": "瑞士",
@@ -54,7 +59,8 @@
       "status": "ok"
     },
     {
-      "issue": 6,
+      "tournamentOrder": 6,
+      "sportteryIssue": 6,
       "matchId": "m06",
       "home": "巴西",
       "away": "摩洛哥",
@@ -64,7 +70,8 @@
       "status": "ok"
     },
     {
-      "issue": 7,
+      "tournamentOrder": 7,
+      "sportteryIssue": 7,
       "matchId": "m07",
       "home": "海地",
       "away": "苏格兰",
@@ -74,7 +81,8 @@
       "status": "ok"
     },
     {
-      "issue": 8,
+      "tournamentOrder": 8,
+      "sportteryIssue": 8,
       "matchId": "m08",
       "home": "澳大利亚",
       "away": "土耳其",
@@ -84,7 +92,8 @@
       "status": "ok"
     },
     {
-      "issue": 9,
+      "tournamentOrder": 9,
+      "sportteryIssue": 9,
       "matchId": "m09",
       "home": "德国",
       "away": "库拉索",
@@ -94,7 +103,8 @@
       "status": "ok"
     },
     {
-      "issue": 10,
+      "tournamentOrder": 10,
+      "sportteryIssue": 10,
       "matchId": "m10",
       "home": "荷兰",
       "away": "日本",
@@ -104,7 +114,8 @@
       "status": "ok"
     },
     {
-      "issue": 11,
+      "tournamentOrder": 11,
+      "sportteryIssue": 11,
       "matchId": "m11",
       "home": "科特迪瓦",
       "away": "厄瓜多尔",
@@ -114,7 +125,8 @@
       "status": "ok"
     },
     {
-      "issue": 12,
+      "tournamentOrder": 12,
+      "sportteryIssue": 12,
       "matchId": "m12",
       "home": "瑞典",
       "away": "突尼斯",
@@ -124,7 +136,8 @@
       "status": "ok"
     },
     {
-      "issue": 13,
+      "tournamentOrder": 13,
+      "sportteryIssue": 13,
       "matchId": "m13",
       "home": "西班牙",
       "away": "佛得角",
@@ -134,7 +147,8 @@
       "status": "ok"
     },
     {
-      "issue": 14,
+      "tournamentOrder": 14,
+      "sportteryIssue": 14,
       "matchId": "m16",
       "home": "比利时",
       "away": "埃及",
@@ -144,7 +158,8 @@
       "status": "ok"
     },
     {
-      "issue": 15,
+      "tournamentOrder": 15,
+      "sportteryIssue": 15,
       "matchId": "m15",
       "home": "沙特阿拉伯",
       "away": "乌拉圭",
@@ -154,7 +169,8 @@
       "status": "ok"
     },
     {
-      "issue": 16,
+      "tournamentOrder": 16,
+      "sportteryIssue": 16,
       "matchId": "m14",
       "home": "伊朗",
       "away": "新西兰",
@@ -164,7 +180,8 @@
       "status": "ok"
     },
     {
-      "issue": 17,
+      "tournamentOrder": 17,
+      "sportteryIssue": 17,
       "matchId": "m18",
       "home": "法国",
       "away": "塞内加尔",
@@ -174,7 +191,8 @@
       "status": "ok"
     },
     {
-      "issue": 18,
+      "tournamentOrder": 18,
+      "sportteryIssue": 18,
       "matchId": "m19",
       "home": "伊拉克",
       "away": "挪威",
@@ -184,7 +202,8 @@
       "status": "ok"
     },
     {
-      "issue": 19,
+      "tournamentOrder": 19,
+      "sportteryIssue": 19,
       "matchId": "m20",
       "home": "阿根廷",
       "away": "阿尔及利亚",
@@ -194,7 +213,8 @@
       "status": "ok"
     },
     {
-      "issue": 20,
+      "tournamentOrder": 20,
+      "sportteryIssue": 20,
       "matchId": "m17",
       "home": "奥地利",
       "away": "约旦",
@@ -204,21 +224,19 @@
       "status": "ok"
     },
     {
-      "issue": 21,
+      "tournamentOrder": 21,
+      "sportteryIssue": 21,
       "matchId": "m21",
       "home": "葡萄牙",
       "away": "刚果（金）",
-      "status": "error",
-      "errors": [
-        "260617021: teams mismatch",
-        "260618021: teams mismatch",
-        "260619021: teams mismatch",
-        "260616021: teams mismatch",
-        "260620021: teams mismatch"
-      ]
+      "sid": "260617021",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260617021",
+      "file": "data_raw/sporttery2026/021_260617021_m21.html",
+      "status": "ok"
     },
     {
-      "issue": 22,
+      "tournamentOrder": 22,
+      "sportteryIssue": 22,
       "matchId": "m22",
       "home": "英格兰",
       "away": "克罗地亚",
@@ -228,7 +246,8 @@
       "status": "ok"
     },
     {
-      "issue": 23,
+      "tournamentOrder": 23,
+      "sportteryIssue": 23,
       "matchId": "m23",
       "home": "加纳",
       "away": "巴拿马",
@@ -238,7 +257,8 @@
       "status": "ok"
     },
     {
-      "issue": 24,
+      "tournamentOrder": 24,
+      "sportteryIssue": 24,
       "matchId": "m24",
       "home": "乌兹别克斯坦",
       "away": "哥伦比亚",
@@ -248,7 +268,8 @@
       "status": "ok"
     },
     {
-      "issue": 25,
+      "tournamentOrder": 25,
+      "sportteryIssue": 25,
       "matchId": "m28",
       "home": "捷克",
       "away": "南非",
@@ -258,7 +279,8 @@
       "status": "ok"
     },
     {
-      "issue": 26,
+      "tournamentOrder": 26,
+      "sportteryIssue": 26,
       "matchId": "m27",
       "home": "瑞士",
       "away": "波黑",
@@ -268,7 +290,8 @@
       "status": "ok"
     },
     {
-      "issue": 27,
+      "tournamentOrder": 27,
+      "sportteryIssue": 27,
       "matchId": "m26",
       "home": "加拿大",
       "away": "卡塔尔",
@@ -278,7 +301,8 @@
       "status": "ok"
     },
     {
-      "issue": 28,
+      "tournamentOrder": 28,
+      "sportteryIssue": 28,
       "matchId": "m25",
       "home": "墨西哥",
       "away": "韩国",
@@ -288,7 +312,8 @@
       "status": "ok"
     },
     {
-      "issue": 29,
+      "tournamentOrder": 29,
+      "sportteryIssue": 29,
       "matchId": "m29",
       "home": "美国",
       "away": "澳大利亚",
@@ -298,7 +323,8 @@
       "status": "ok"
     },
     {
-      "issue": 30,
+      "tournamentOrder": 30,
+      "sportteryIssue": 30,
       "matchId": "m32",
       "home": "苏格兰",
       "away": "摩洛哥",
@@ -308,7 +334,8 @@
       "status": "ok"
     },
     {
-      "issue": 31,
+      "tournamentOrder": 31,
+      "sportteryIssue": 31,
       "matchId": "m31",
       "home": "巴西",
       "away": "海地",
@@ -318,7 +345,8 @@
       "status": "ok"
     },
     {
-      "issue": 32,
+      "tournamentOrder": 32,
+      "sportteryIssue": 32,
       "matchId": "m30",
       "home": "土耳其",
       "away": "巴拉圭",
@@ -328,7 +356,8 @@
       "status": "ok"
     },
     {
-      "issue": 33,
+      "tournamentOrder": 33,
+      "sportteryIssue": 33,
       "matchId": "m36",
       "home": "荷兰",
       "away": "瑞典",
@@ -338,7 +367,8 @@
       "status": "ok"
     },
     {
-      "issue": 34,
+      "tournamentOrder": 34,
+      "sportteryIssue": 34,
       "matchId": "m35",
       "home": "德国",
       "away": "科特迪瓦",
@@ -348,7 +378,8 @@
       "status": "ok"
     },
     {
-      "issue": 35,
+      "tournamentOrder": 35,
+      "sportteryIssue": 35,
       "matchId": "m34",
       "home": "厄瓜多尔",
       "away": "库拉索",
@@ -358,7 +389,8 @@
       "status": "ok"
     },
     {
-      "issue": 36,
+      "tournamentOrder": 36,
+      "sportteryIssue": 36,
       "matchId": "m33",
       "home": "突尼斯",
       "away": "日本",
@@ -368,7 +400,8 @@
       "status": "ok"
     },
     {
-      "issue": 37,
+      "tournamentOrder": 37,
+      "sportteryIssue": 37,
       "matchId": "m40",
       "home": "西班牙",
       "away": "沙特阿拉伯",
@@ -378,7 +411,8 @@
       "status": "ok"
     },
     {
-      "issue": 38,
+      "tournamentOrder": 38,
+      "sportteryIssue": 38,
       "matchId": "m39",
       "home": "比利时",
       "away": "伊朗",
@@ -388,7 +422,8 @@
       "status": "ok"
     },
     {
-      "issue": 39,
+      "tournamentOrder": 39,
+      "sportteryIssue": 39,
       "matchId": "m38",
       "home": "乌拉圭",
       "away": "佛得角",
@@ -398,7 +433,8 @@
       "status": "ok"
     },
     {
-      "issue": 40,
+      "tournamentOrder": 40,
+      "sportteryIssue": 40,
       "matchId": "m37",
       "home": "新西兰",
       "away": "埃及",
@@ -408,7 +444,8 @@
       "status": "ok"
     },
     {
-      "issue": 41,
+      "tournamentOrder": 41,
+      "sportteryIssue": 41,
       "matchId": "m44",
       "home": "阿根廷",
       "away": "奥地利",
@@ -418,7 +455,8 @@
       "status": "ok"
     },
     {
-      "issue": 42,
+      "tournamentOrder": 42,
+      "sportteryIssue": 42,
       "matchId": "m43",
       "home": "法国",
       "away": "伊拉克",
@@ -428,7 +466,8 @@
       "status": "ok"
     },
     {
-      "issue": 43,
+      "tournamentOrder": 43,
+      "sportteryIssue": 43,
       "matchId": "m42",
       "home": "挪威",
       "away": "塞内加尔",
@@ -438,7 +477,8 @@
       "status": "ok"
     },
     {
-      "issue": 44,
+      "tournamentOrder": 44,
+      "sportteryIssue": 44,
       "matchId": "m41",
       "home": "约旦",
       "away": "阿尔及利亚",
@@ -448,7 +488,8 @@
       "status": "ok"
     },
     {
-      "issue": 45,
+      "tournamentOrder": 45,
+      "sportteryIssue": 45,
       "matchId": "m48",
       "home": "葡萄牙",
       "away": "乌兹别克斯坦",
@@ -458,7 +499,8 @@
       "status": "ok"
     },
     {
-      "issue": 46,
+      "tournamentOrder": 46,
+      "sportteryIssue": 46,
       "matchId": "m47",
       "home": "英格兰",
       "away": "加纳",
@@ -468,7 +510,8 @@
       "status": "ok"
     },
     {
-      "issue": 47,
+      "tournamentOrder": 47,
+      "sportteryIssue": 47,
       "matchId": "m46",
       "home": "巴拿马",
       "away": "克罗地亚",
@@ -478,21 +521,19 @@
       "status": "ok"
     },
     {
-      "issue": 48,
+      "tournamentOrder": 48,
+      "sportteryIssue": 48,
       "matchId": "m45",
       "home": "哥伦比亚",
       "away": "刚果（金）",
-      "status": "error",
-      "errors": [
-        "260623048: teams mismatch",
-        "260624048: teams mismatch",
-        "260625048: teams mismatch",
-        "260622048: teams mismatch",
-        "260626048: teams mismatch"
-      ]
+      "sid": "260623048",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260623048",
+      "file": "data_raw/sporttery2026/048_260623048_m45.html",
+      "status": "ok"
     },
     {
-      "issue": 49,
+      "tournamentOrder": 49,
+      "sportteryIssue": 49,
       "matchId": "m54",
       "home": "瑞士",
       "away": "加拿大",
@@ -502,7 +543,8 @@
       "status": "ok"
     },
     {
-      "issue": 50,
+      "tournamentOrder": 50,
+      "sportteryIssue": 50,
       "matchId": "m53",
       "home": "波黑",
       "away": "卡塔尔",
@@ -512,7 +554,8 @@
       "status": "ok"
     },
     {
-      "issue": 51,
+      "tournamentOrder": 51,
+      "sportteryIssue": 51,
       "matchId": "m52",
       "home": "苏格兰",
       "away": "巴西",
@@ -522,7 +565,8 @@
       "status": "ok"
     },
     {
-      "issue": 52,
+      "tournamentOrder": 52,
+      "sportteryIssue": 52,
       "matchId": "m51",
       "home": "摩洛哥",
       "away": "海地",
@@ -532,35 +576,30 @@
       "status": "ok"
     },
     {
-      "issue": 53,
+      "tournamentOrder": 53,
+      "sportteryIssue": 54,
       "matchId": "m50",
       "home": "捷克",
       "away": "墨西哥",
-      "status": "error",
-      "errors": [
-        "260624053: teams mismatch",
-        "260625053: teams mismatch",
-        "260626053: teams mismatch",
-        "260623053: teams mismatch",
-        "260627053: teams mismatch"
-      ]
+      "sid": "260624054",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624054",
+      "file": "data_raw/sporttery2026/053_260624054_m50.html",
+      "status": "ok"
     },
     {
-      "issue": 54,
+      "tournamentOrder": 54,
+      "sportteryIssue": 53,
       "matchId": "m49",
       "home": "南非",
       "away": "韩国",
-      "status": "error",
-      "errors": [
-        "260624054: teams mismatch",
-        "260625054: teams mismatch",
-        "260626054: teams mismatch",
-        "260623054: teams mismatch",
-        "260627054: teams mismatch"
-      ]
+      "sid": "260624053",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260624053",
+      "file": "data_raw/sporttery2026/054_260624053_m49.html",
+      "status": "ok"
     },
     {
-      "issue": 55,
+      "tournamentOrder": 55,
+      "sportteryIssue": 55,
       "matchId": "m56",
       "home": "厄瓜多尔",
       "away": "德国",
@@ -570,7 +609,8 @@
       "status": "ok"
     },
     {
-      "issue": 56,
+      "tournamentOrder": 56,
+      "sportteryIssue": 56,
       "matchId": "m55",
       "home": "库拉索",
       "away": "科特迪瓦",
@@ -580,7 +620,8 @@
       "status": "ok"
     },
     {
-      "issue": 57,
+      "tournamentOrder": 57,
+      "sportteryIssue": 57,
       "matchId": "m58",
       "home": "突尼斯",
       "away": "荷兰",
@@ -590,7 +631,8 @@
       "status": "ok"
     },
     {
-      "issue": 58,
+      "tournamentOrder": 58,
+      "sportteryIssue": 58,
       "matchId": "m57",
       "home": "日本",
       "away": "瑞典",
@@ -600,35 +642,30 @@
       "status": "ok"
     },
     {
-      "issue": 59,
+      "tournamentOrder": 59,
+      "sportteryIssue": 60,
       "matchId": "m59",
       "home": "土耳其",
       "away": "美国",
-      "status": "error",
-      "errors": [
-        "260625059: teams mismatch",
-        "260626059: teams mismatch",
-        "260627059: teams mismatch",
-        "260624059: teams mismatch",
-        "260628059: teams mismatch"
-      ]
+      "sid": "260625060",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625060",
+      "file": "data_raw/sporttery2026/059_260625060_m59.html",
+      "status": "ok"
     },
     {
-      "issue": 60,
+      "tournamentOrder": 60,
+      "sportteryIssue": 59,
       "matchId": "m60",
       "home": "巴拉圭",
       "away": "澳大利亚",
-      "status": "error",
-      "errors": [
-        "260625060: teams mismatch",
-        "260626060: teams mismatch",
-        "260627060: teams mismatch",
-        "260624060: teams mismatch",
-        "260628060: teams mismatch"
-      ]
+      "sid": "260625059",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260625059",
+      "file": "data_raw/sporttery2026/060_260625059_m60.html",
+      "status": "ok"
     },
     {
-      "issue": 61,
+      "tournamentOrder": 61,
+      "sportteryIssue": 61,
       "matchId": "m66",
       "home": "挪威",
       "away": "法国",
@@ -638,7 +675,8 @@
       "status": "ok"
     },
     {
-      "issue": 62,
+      "tournamentOrder": 62,
+      "sportteryIssue": 62,
       "matchId": "m65",
       "home": "塞内加尔",
       "away": "伊拉克",
@@ -648,91 +686,74 @@
       "status": "ok"
     },
     {
-      "issue": 63,
+      "tournamentOrder": 63,
+      "sportteryIssue": 64,
       "matchId": "m64",
       "home": "乌拉圭",
       "away": "西班牙",
-      "status": "error",
-      "errors": [
-        "260626063: teams mismatch",
-        "260627063: teams mismatch",
-        "260628063: teams mismatch",
-        "260625063: teams mismatch",
-        "260629063: teams mismatch"
-      ]
+      "sid": "260626064",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626064",
+      "file": "data_raw/sporttery2026/063_260626064_m64.html",
+      "status": "ok"
     },
     {
-      "issue": 64,
+      "tournamentOrder": 64,
+      "sportteryIssue": 63,
       "matchId": "m63",
       "home": "佛得角",
       "away": "沙特阿拉伯",
-      "status": "error",
-      "errors": [
-        "260626064: teams mismatch",
-        "260627064: teams mismatch",
-        "260628064: teams mismatch",
-        "260625064: teams mismatch",
-        "260629064: teams mismatch"
-      ]
+      "sid": "260626063",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626063",
+      "file": "data_raw/sporttery2026/064_260626063_m63.html",
+      "status": "ok"
     },
     {
-      "issue": 65,
+      "tournamentOrder": 65,
+      "sportteryIssue": 66,
       "matchId": "m61",
       "home": "新西兰",
       "away": "比利时",
-      "status": "error",
-      "errors": [
-        "260626065: teams mismatch",
-        "260627065: teams mismatch",
-        "260628065: teams mismatch",
-        "260625065: teams mismatch",
-        "260629065: teams mismatch"
-      ]
+      "sid": "260626066",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626066",
+      "file": "data_raw/sporttery2026/065_260626066_m61.html",
+      "status": "ok"
     },
     {
-      "issue": 66,
+      "tournamentOrder": 66,
+      "sportteryIssue": 65,
       "matchId": "m62",
       "home": "埃及",
       "away": "伊朗",
-      "status": "error",
-      "errors": [
-        "260626066: teams mismatch",
-        "260627066: teams mismatch",
-        "260628066: teams mismatch",
-        "260625066: teams mismatch",
-        "260629066: teams mismatch"
-      ]
+      "sid": "260626065",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260626065",
+      "file": "data_raw/sporttery2026/066_260626065_m62.html",
+      "status": "ok"
     },
     {
-      "issue": 67,
+      "tournamentOrder": 67,
+      "sportteryIssue": 68,
       "matchId": "m72",
       "home": "巴拿马",
       "away": "英格兰",
-      "status": "error",
-      "errors": [
-        "260627067: teams mismatch",
-        "260628067: teams mismatch",
-        "260629067: teams mismatch",
-        "260626067: teams mismatch",
-        "260630067: teams mismatch"
-      ]
+      "sid": "260627068",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627068",
+      "file": "data_raw/sporttery2026/067_260627068_m72.html",
+      "status": "ok"
     },
     {
-      "issue": 68,
+      "tournamentOrder": 68,
+      "sportteryIssue": 67,
       "matchId": "m71",
       "home": "克罗地亚",
       "away": "加纳",
-      "status": "error",
-      "errors": [
-        "260627068: teams mismatch",
-        "260628068: teams mismatch",
-        "260629068: teams mismatch",
-        "260626068: teams mismatch",
-        "260630068: teams mismatch"
-      ]
+      "sid": "260627067",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627067",
+      "file": "data_raw/sporttery2026/068_260627067_m71.html",
+      "status": "ok"
     },
     {
-      "issue": 69,
+      "tournamentOrder": 69,
+      "sportteryIssue": 69,
       "matchId": "m69",
       "home": "哥伦比亚",
       "away": "葡萄牙",
@@ -742,49 +763,41 @@
       "status": "ok"
     },
     {
-      "issue": 70,
+      "tournamentOrder": 70,
+      "sportteryIssue": 70,
       "matchId": "m70",
       "home": "刚果（金）",
       "away": "乌兹别克斯坦",
-      "status": "error",
-      "errors": [
-        "260627070: teams mismatch",
-        "260628070: teams mismatch",
-        "260629070: teams mismatch",
-        "260626070: teams mismatch",
-        "260630070: teams mismatch"
-      ]
+      "sid": "260627070",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627070",
+      "file": "data_raw/sporttery2026/070_260627070_m70.html",
+      "status": "ok"
     },
     {
-      "issue": 71,
+      "tournamentOrder": 71,
+      "sportteryIssue": 72,
       "matchId": "m68",
       "home": "约旦",
       "away": "阿根廷",
-      "status": "error",
-      "errors": [
-        "260627071: teams mismatch",
-        "260628071: teams mismatch",
-        "260629071: teams mismatch",
-        "260626071: teams mismatch",
-        "260630071: teams mismatch"
-      ]
+      "sid": "260627072",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627072",
+      "file": "data_raw/sporttery2026/071_260627072_m68.html",
+      "status": "ok"
     },
     {
-      "issue": 72,
+      "tournamentOrder": 72,
+      "sportteryIssue": 71,
       "matchId": "m67",
       "home": "阿尔及利亚",
       "away": "奥地利",
-      "status": "error",
-      "errors": [
-        "260627072: teams mismatch",
-        "260628072: teams mismatch",
-        "260629072: teams mismatch",
-        "260626072: teams mismatch",
-        "260630072: teams mismatch"
-      ]
+      "sid": "260627071",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260627071",
+      "file": "data_raw/sporttery2026/072_260627071_m67.html",
+      "status": "ok"
     },
     {
-      "issue": 73,
+      "tournamentOrder": 73,
+      "sportteryIssue": 73,
       "matchId": "m73",
       "home": "南非",
       "away": "加拿大",
@@ -794,7 +807,8 @@
       "status": "ok"
     },
     {
-      "issue": 74,
+      "tournamentOrder": 74,
+      "sportteryIssue": 74,
       "matchId": "m76",
       "home": "巴西",
       "away": "日本",
@@ -804,7 +818,8 @@
       "status": "ok"
     },
     {
-      "issue": 75,
+      "tournamentOrder": 75,
+      "sportteryIssue": 75,
       "matchId": "m74",
       "home": "德国",
       "away": "巴拉圭",
@@ -814,7 +829,8 @@
       "status": "ok"
     },
     {
-      "issue": 76,
+      "tournamentOrder": 76,
+      "sportteryIssue": 76,
       "matchId": "m75",
       "home": "荷兰",
       "away": "摩洛哥",
@@ -824,7 +840,8 @@
       "status": "ok"
     },
     {
-      "issue": 77,
+      "tournamentOrder": 77,
+      "sportteryIssue": 77,
       "matchId": "m79",
       "home": "科特迪瓦",
       "away": "挪威",
@@ -834,7 +851,8 @@
       "status": "ok"
     },
     {
-      "issue": 78,
+      "tournamentOrder": 78,
+      "sportteryIssue": 78,
       "matchId": "m78",
       "home": "法国",
       "away": "瑞典",
@@ -844,7 +862,8 @@
       "status": "ok"
     },
     {
-      "issue": 79,
+      "tournamentOrder": 79,
+      "sportteryIssue": 79,
       "matchId": "m77",
       "home": "墨西哥",
       "away": "厄瓜多尔",
@@ -854,21 +873,19 @@
       "status": "ok"
     },
     {
-      "issue": 80,
+      "tournamentOrder": 80,
+      "sportteryIssue": 80,
       "matchId": "m82",
       "home": "英格兰",
       "away": "刚果（金）",
-      "status": "error",
-      "errors": [
-        "260701080: teams mismatch",
-        "260702080: teams mismatch",
-        "260703080: teams mismatch",
-        "260630080: teams mismatch",
-        "260704080: teams mismatch"
-      ]
+      "sid": "260701080",
+      "url": "https://www.shzrs.com/jczq/bsid.php?t=260701080",
+      "file": "data_raw/sporttery2026/080_260701080_m82.html",
+      "status": "ok"
     },
     {
-      "issue": 81,
+      "tournamentOrder": 81,
+      "sportteryIssue": 81,
       "matchId": "m81",
       "home": "比利时",
       "away": "塞内加尔",
@@ -878,7 +895,8 @@
       "status": "ok"
     },
     {
-      "issue": 82,
+      "tournamentOrder": 82,
+      "sportteryIssue": 82,
       "matchId": "m80",
       "home": "美国",
       "away": "波黑",
@@ -888,7 +906,8 @@
       "status": "ok"
     },
     {
-      "issue": 83,
+      "tournamentOrder": 83,
+      "sportteryIssue": 83,
       "matchId": "m85",
       "home": "西班牙",
       "away": "奥地利",
@@ -898,7 +917,8 @@
       "status": "ok"
     },
     {
-      "issue": 84,
+      "tournamentOrder": 84,
+      "sportteryIssue": 84,
       "matchId": "m84",
       "home": "葡萄牙",
       "away": "克罗地亚",
@@ -908,7 +928,8 @@
       "status": "ok"
     },
     {
-      "issue": 85,
+      "tournamentOrder": 85,
+      "sportteryIssue": 85,
       "matchId": "m83",
       "home": "瑞士",
       "away": "阿尔及利亚",
@@ -918,7 +939,8 @@
       "status": "ok"
     },
     {
-      "issue": 86,
+      "tournamentOrder": 86,
+      "sportteryIssue": 86,
       "matchId": "m88",
       "home": "澳大利亚",
       "away": "埃及",
@@ -928,7 +950,8 @@
       "status": "ok"
     },
     {
-      "issue": 87,
+      "tournamentOrder": 87,
+      "sportteryIssue": 87,
       "matchId": "m87",
       "home": "阿根廷",
       "away": "佛得角",
@@ -938,7 +961,8 @@
       "status": "ok"
     },
     {
-      "issue": 88,
+      "tournamentOrder": 88,
+      "sportteryIssue": 88,
       "matchId": "m86",
       "home": "哥伦比亚",
       "away": "加纳",
@@ -948,7 +972,8 @@
       "status": "ok"
     },
     {
-      "issue": 89,
+      "tournamentOrder": 89,
+      "sportteryIssue": 89,
       "matchId": "m90",
       "home": "加拿大",
       "away": "摩洛哥",
@@ -958,7 +983,8 @@
       "status": "ok"
     },
     {
-      "issue": 90,
+      "tournamentOrder": 90,
+      "sportteryIssue": 90,
       "matchId": "m89",
       "home": "巴拉圭",
       "away": "法国",
@@ -968,7 +994,8 @@
       "status": "ok"
     },
     {
-      "issue": 91,
+      "tournamentOrder": 91,
+      "sportteryIssue": 91,
       "matchId": "m92",
       "home": "巴西",
       "away": "挪威",
@@ -978,7 +1005,8 @@
       "status": "ok"
     },
     {
-      "issue": 92,
+      "tournamentOrder": 92,
+      "sportteryIssue": 92,
       "matchId": "m91",
       "home": "墨西哥",
       "away": "英格兰",
@@ -988,7 +1016,8 @@
       "status": "ok"
     },
     {
-      "issue": 93,
+      "tournamentOrder": 93,
+      "sportteryIssue": 93,
       "matchId": "m94",
       "home": "葡萄牙",
       "away": "西班牙",
@@ -998,7 +1027,8 @@
       "status": "ok"
     },
     {
-      "issue": 94,
+      "tournamentOrder": 94,
+      "sportteryIssue": 94,
       "matchId": "m93",
       "home": "美国",
       "away": "比利时",
@@ -1008,7 +1038,8 @@
       "status": "ok"
     },
     {
-      "issue": 95,
+      "tournamentOrder": 95,
+      "sportteryIssue": 95,
       "matchId": "m96",
       "home": "阿根廷",
       "away": "埃及",
@@ -1018,7 +1049,8 @@
       "status": "ok"
     },
     {
-      "issue": 96,
+      "tournamentOrder": 96,
+      "sportteryIssue": 96,
       "matchId": "m95",
       "home": "瑞士",
       "away": "哥伦比亚",
@@ -1028,7 +1060,8 @@
       "status": "ok"
     },
     {
-      "issue": 97,
+      "tournamentOrder": 97,
+      "sportteryIssue": 97,
       "matchId": "m97",
       "home": "法国",
       "away": "摩洛哥",
@@ -1038,7 +1071,8 @@
       "status": "ok"
     },
     {
-      "issue": 98,
+      "tournamentOrder": 98,
+      "sportteryIssue": 98,
       "matchId": "m98",
       "home": "西班牙",
       "away": "比利时",
@@ -1048,7 +1082,8 @@
       "status": "ok"
     },
     {
-      "issue": 99,
+      "tournamentOrder": 99,
+      "sportteryIssue": 99,
       "matchId": "m100",
       "home": "挪威",
       "away": "英格兰",
@@ -1058,7 +1093,8 @@
       "status": "ok"
     },
     {
-      "issue": 100,
+      "tournamentOrder": 100,
+      "sportteryIssue": 100,
       "matchId": "m99",
       "home": "阿根廷",
       "away": "瑞士",
@@ -1068,7 +1104,8 @@
       "status": "ok"
     },
     {
-      "issue": 101,
+      "tournamentOrder": 101,
+      "sportteryIssue": 101,
       "matchId": "m101",
       "home": "法国",
       "away": "西班牙",
@@ -1078,7 +1115,8 @@
       "status": "ok"
     },
     {
-      "issue": 102,
+      "tournamentOrder": 102,
+      "sportteryIssue": 102,
       "matchId": "m102",
       "home": "英格兰",
       "away": "阿根廷",
@@ -1088,7 +1126,8 @@
       "status": "ok"
     },
     {
-      "issue": 103,
+      "tournamentOrder": 103,
+      "sportteryIssue": 103,
       "matchId": "m103",
       "home": "法国",
       "away": "英格兰",
@@ -1098,7 +1137,8 @@
       "status": "ok"
     },
     {
-      "issue": 104,
+      "tournamentOrder": 104,
+      "sportteryIssue": 104,
       "matchId": "m104",
       "home": "西班牙",
       "away": "阿根廷",
