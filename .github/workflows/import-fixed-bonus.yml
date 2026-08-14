@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/fetch_sporttery_fixed.py'
+      - 'fetch_sporttery_fixed.py'
       - 'data-*.js'
       - '.github/workflows/import-fixed-bonus.yml'
 
@@ -29,7 +29,7 @@ jobs:
         run: python -m pip install --disable-pip-version-check requests beautifulsoup4
 
       - name: Fetch all 104 historical fixed-bonus markets
-        run: python scripts/fetch_sporttery_fixed.py
+        run: python fetch_sporttery_fixed.py
 
       - name: Commit generated data
         run: |
