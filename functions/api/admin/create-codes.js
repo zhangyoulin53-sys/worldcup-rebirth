@@ -25,7 +25,10 @@ export async function onRequestPost(context) {
   let count = Math.floor(Number(body.count || 1));
   if (!Number.isFinite(count) || count < 1) count = 1;
   count = Math.min(count, 100);
-  const maxDevices = Math.min(5, Math.max(1, Math.floor(Number(body.maxDevices || 2))));
+
+  // Product rule: every rebirth code is fixed to exactly two browser/device environments.
+  // Do not accept a client-supplied override here.
+  const maxDevices = 2;
   const created = [];
 
   for (let i = 0; i < count; i++) {
@@ -44,5 +47,5 @@ export async function onRequestPost(context) {
     await env.REBIRTH_CODES.put(`code:${code}`, JSON.stringify(record));
     created.push(code);
   }
-  return json({ ok: true, count: created.length, codes: created });
+  return json({ ok: true, count: created.length, maxDevices, codes: created });
 }
