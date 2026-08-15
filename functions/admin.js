@@ -25,7 +25,7 @@ const page = `<!doctype html>
 <h2>生成重生码</h2>
 <div class="row">
 <div><label>生成数量</label><input id="count" type="number" min="1" max="100" value="5" /></div>
-<div><label>每码允许设备</label><div class="fixedBox">固定 2 台设备</div></div>
+<div><label>每码允许设备</label><div class="fixedBox">固定 3 个浏览器/设备环境</div></div>
 </div>
 <label>备注（可选）</label><input id="note" placeholder="例如：小红书首批 / 订单20260815" maxlength="120" />
 <div class="actions"><button id="generate">生成重生码</button><button class="secondary" id="copyAll" disabled>复制全部</button></div>
@@ -35,7 +35,7 @@ const page = `<!doctype html>
 
 <section class="card">
 <h2>重置设备绑定</h2>
-<div class="sub">用户换手机、清浏览器数据或误占设备名额时使用。重置后会清空两台设备的绑定，该码可重新绑定最多两台设备。</div>
+<div class="sub">用户换手机、清浏览器数据或误占设备名额时使用。重置后会清空现有绑定，该码可重新绑定最多 3 个浏览器/设备环境。</div>
 <label>重生码</label><input id="resetCode" placeholder="RF26-XXXX-XXXX" autocomplete="off" />
 <div class="actions"><button class="danger" id="reset">清空该码设备绑定</button></div>
 <div class="status" id="resetStatus"></div>
@@ -50,10 +50,10 @@ const esc=s=>String(s).replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 function renderCodes(){const box=$("codes");box.innerHTML=latest.map(c=>'<div class="code"><b>'+esc(c)+'</b><button class="secondary one" data-code="'+esc(c)+'">复制</button></div>').join('');$("copyAll").disabled=!latest.length}
 $("remember").onclick=()=>{if(!token())return alert("先输入 ADMIN_TOKEN");sessionStorage.setItem("rf_admin_token",token());$("genStatus").textContent="已仅在本次浏览器会话中记住"};
 $("forget").onclick=()=>{sessionStorage.removeItem("rf_admin_token");$("token").value=""};
-$("generate").onclick=async()=>{const b=$("generate");b.disabled=true;$("genStatus").textContent="正在生成…";try{const d=await api("/api/admin/create-codes",{count:Number($("count").value||1),note:$("note").value});latest=d.codes||[];renderCodes();$("genStatus").textContent="已生成 "+latest.length+" 个重生码 · 每码固定最多 2 台设备"}catch(e){$("genStatus").textContent="失败："+e.message}finally{b.disabled=false}};
+$("generate").onclick=async()=>{const b=$("generate");b.disabled=true;$("genStatus").textContent="正在生成…";try{const d=await api("/api/admin/create-codes",{count:Number($("count").value||1),note:$("note").value});latest=d.codes||[];renderCodes();$("genStatus").textContent="已生成 "+latest.length+" 个重生码 · 每码固定最多 3 个浏览器/设备环境"}catch(e){$("genStatus").textContent="失败："+e.message}finally{b.disabled=false}};
 $("copyAll").onclick=async()=>{if(!latest.length)return;await navigator.clipboard.writeText(latest.join(String.fromCharCode(10)));$("genStatus").textContent="已复制全部重生码"};
 document.addEventListener("click",async e=>{const b=e.target.closest(".one");if(!b)return;await navigator.clipboard.writeText(b.dataset.code);b.textContent="已复制";setTimeout(()=>b.textContent="复制",900)});
-$("reset").onclick=async()=>{const code=$("resetCode").value.trim().toUpperCase();if(!code)return $("resetStatus").textContent="请输入重生码";if(!confirm("确定清空 "+code+" 的全部设备绑定吗？"))return;const b=$("reset");b.disabled=true;$("resetStatus").textContent="正在重置…";try{const d=await api("/api/admin/reset-code",{code});$("resetStatus").textContent=d.ok?"已清空设备绑定，该码现在可重新绑定最多 2 台设备":"操作完成"}catch(e){$("resetStatus").textContent="失败："+e.message}finally{b.disabled=false}};
+$("reset").onclick=async()=>{const code=$("resetCode").value.trim().toUpperCase();if(!code)return $("resetStatus").textContent="请输入重生码";if(!confirm("确定清空 "+code+" 的全部设备绑定吗？"))return;const b=$("reset");b.disabled=true;$("resetStatus").textContent="正在重置…";try{const d=await api("/api/admin/reset-code",{code});$("resetStatus").textContent=d.ok?"已清空设备绑定，该码现在可重新绑定最多 3 个浏览器/设备环境":"操作完成"}catch(e){$("resetStatus").textContent="失败："+e.message}finally{b.disabled=false}};
 const saved=sessionStorage.getItem("rf_admin_token");if(saved)$("token").value=saved;
 </script></body></html>`;
 
