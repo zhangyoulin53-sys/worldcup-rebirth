@@ -21,9 +21,9 @@ export async function onRequestPost(context) {
   let record;
   try { record = JSON.parse(raw); } catch (_) { return json({ code: "SERVER_DATA" }, 500); }
 
-  record.maxDevices = 2;
+  record.maxDevices = 3;
   record.devices = [];
   record.lastResetAt = new Date().toISOString();
   await env.REBIRTH_CODES.put(`code:${code}`, JSON.stringify(record));
-  return json({ ok: true, code, maxDevices: 2, usedDevices: 0 });
+  return json({ ok: true, code, maxDevices: 3, usedDevices: 0 });
 }
