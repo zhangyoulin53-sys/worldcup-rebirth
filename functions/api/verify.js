@@ -26,11 +26,11 @@ export async function onRequestPost(context) {
   try { record = JSON.parse(codeRaw); } catch (_) { return json({ code: "INVALID_CODE" }, 401); }
   if (record.status === "disabled") return json({ code: "DISABLED", message: "该重生码已停用" }, 403);
 
-  // Product rule: only the first two bound browser/device environments remain authorized.
-  const devices = Array.isArray(record.devices) ? record.devices.slice(0, 2) : [];
+  const maxDevices = 3;
+  const devices = Array.isArray(record.devices) ? record.devices.slice(0, maxDevices) : [];
   if (!devices.some(x => x.id === deviceId)) {
-    return json({ code: "DEVICE_REVOKED", message: "该设备不在此重生码的两台授权设备中" }, 401);
+    return json({ code: "DEVICE_REVOKED", message: "该浏览器/设备环境不在此重生码的 3 个授权名额中" }, 401);
   }
 
-  return json({ ok: true, maxDevices: 2, usedDevices: devices.length });
+  return json({ ok: true, maxDevices, usedDevices: devices.length });
 }
