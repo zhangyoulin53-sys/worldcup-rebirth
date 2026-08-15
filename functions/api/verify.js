@@ -25,8 +25,12 @@ export async function onRequestPost(context) {
   let record;
   try { record = JSON.parse(codeRaw); } catch (_) { return json({ code: "INVALID_CODE" }, 401); }
   if (record.status === "disabled") return json({ code: "DISABLED", message: "该重生码已停用" }, 403);
-  const devices = Array.isArray(record.devices) ? record.devices : [];
-  if (!devices.some(x => x.id === deviceId)) return json({ code: "DEVICE_REVOKED", message: "该设备授权已被移除" }, 401);
 
-  return json({ ok: true });
+  // Product rule: only the first two bound browser/device environments remain authorized.
+  const devices = Array.isArray(record.devices) ? record.devices.slice(0, 2) : [];
+  if (!devices.some(x => x.id === deviceId)) {
+    return json({ code: "DEVICE_REVOKED", message: "该设备不在此重生码的两台授权设备中" }, 401);
+  }
+
+  return json({ ok: true, maxDevices: 2, usedDevices: devices.length });
 }
