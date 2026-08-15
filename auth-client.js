@@ -69,7 +69,6 @@
 
   window.RebirthAuth = { required, activate, verify, getDeviceId };
 
-  // In production, intercept the old preview-code handler before app.js receives the click.
   document.addEventListener("click", async (e) => {
     if (!required) return;
     const btn = e.target.closest?.('[data-action="activate"]');
@@ -85,7 +84,7 @@
       if (typeof window.show === "function") window.show("intro");
       else location.reload();
     } catch (err) {
-      const msg = err.code === "DEVICE_LIMIT" ? "这个重生码已经绑定了两台设备" : (err.message || "重生码验证失败");
+      const msg = err.code === "DEVICE_LIMIT" ? "这个重生码已经绑定了 3 个浏览器/设备环境" : (err.message || "重生码验证失败");
       if (typeof window.toast === "function") window.toast(msg);
       else alert(msg);
     } finally {
