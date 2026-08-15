@@ -26,9 +26,8 @@ export async function onRequestPost(context) {
   if (!Number.isFinite(count) || count < 1) count = 1;
   count = Math.min(count, 100);
 
-  // Product rule: every rebirth code is fixed to exactly two browser/device environments.
-  // Do not accept a client-supplied override here.
-  const maxDevices = 2;
+  // Product rule: every rebirth code is fixed to three browser/device environments.
+  const maxDevices = 3;
   const created = [];
 
   for (let i = 0; i < count; i++) {
