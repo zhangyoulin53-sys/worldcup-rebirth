@@ -25,9 +25,9 @@ export async function onRequestPost(context) {
   try { record = JSON.parse(raw); } catch (_) { return json({ code: "SERVER_DATA", message: "重生码数据异常" }, 500); }
   if (record.status === "disabled") return json({ code: "DISABLED", message: "这个重生码已停用" }, 403);
 
-  // Hard product rule: one code authorizes at most two browser/device environments.
-  // Ignore any older record/client value that may have allowed more.
-  const maxDevices = 2;
+  // Product rule: one code authorizes at most three browser/device environments.
+  // This gives one buyer room for mobile in-app browser + mobile browser + computer.
+  const maxDevices = 3;
   const devices = Array.isArray(record.devices) ? record.devices.slice(0, maxDevices) : [];
   const now = new Date().toISOString();
   let found = devices.find(x => x.id === deviceId);
@@ -36,7 +36,7 @@ export async function onRequestPost(context) {
     if (devices.length >= maxDevices) {
       return json({
         code: "DEVICE_LIMIT",
-        message: "该重生码已经绑定 2 台设备，如需更换设备请联系卖家重置绑定"
+        message: "该重生码已经绑定 3 个浏览器/设备环境，如需更换请联系卖家重置绑定"
       }, 403);
     }
     found = { id: deviceId, firstSeen: now, lastSeen: now };
