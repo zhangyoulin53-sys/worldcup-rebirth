@@ -25,18 +25,27 @@ export async function onRequestPost(context) {
   try { record = JSON.parse(raw); } catch (_) { return json({ code: "SERVER_DATA", message: "重生码数据异常" }, 500); }
   if (record.status === "disabled") return json({ code: "DISABLED", message: "这个重生码已停用" }, 403);
 
-  const devices = Array.isArray(record.devices) ? record.devices : [];
-  const maxDevices = Number(record.maxDevices || 2);
+  // Hard product rule: one code authorizes at most two browser/device environments.
+  // Ignore any older record/client value that may have allowed more.
+  const maxDevices = 2;
+  const devices = Array.isArray(record.devices) ? record.devices.slice(0, maxDevices) : [];
   const now = new Date().toISOString();
   let found = devices.find(x => x.id === deviceId);
+
   if (!found) {
-    if (devices.length >= maxDevices) return json({ code: "DEVICE_LIMIT", message: `该重生码最多可激活 ${maxDevices} 台设备` }, 403);
+    if (devices.length >= maxDevices) {
+      return json({
+        code: "DEVICE_LIMIT",
+        message: "该重生码已经绑定 2 台设备，如需更换设备请联系卖家重置绑定"
+      }, 403);
+    }
     found = { id: deviceId, firstSeen: now, lastSeen: now };
     devices.push(found);
   } else {
     found.lastSeen = now;
   }
 
+  record.maxDevices = maxDevices;
   record.devices = devices;
   record.lastActivatedAt = now;
   if (!record.firstActivatedAt) record.firstActivatedAt = now;
