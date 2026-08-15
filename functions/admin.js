@@ -29,7 +29,7 @@ const page = `<!doctype html>
 </div>
 <label>备注（可选）</label><input id="note" placeholder="例如：小红书首批 / 订单20260814" maxlength="120" />
 <div class="actions"><button id="generate">生成重生码</button><button class="secondary" id="copyAll" disabled>复制全部</button></div>
-<div class="status" id="genStatus"></div>
+<div class="status" id="genStatus">后台脚本已加载，等待操作。</div>
 <div class="codes" id="codes"></div>
 </section>
 
@@ -43,6 +43,7 @@ const page = `<!doctype html>
 </main>
 <script>
 const $=id=>document.getElementById(id);let latest=[];
+window.addEventListener("error",e=>{const s=$("genStatus");if(s)s.textContent="页面脚本错误："+(e.message||"未知错误")});
 const token=()=>$("token").value.trim();
 const api=async(path,body)=>{const t=token();if(!t)throw new Error("请先输入 ADMIN_TOKEN");const r=await fetch(path,{method:"POST",headers:{"content-type":"application/json","authorization":"Bearer "+t},body:JSON.stringify(body||{}),cache:"no-store"});let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.message||d.code||("请求失败 "+r.status));return d};
 const esc=s=>String(s).replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -50,7 +51,7 @@ function renderCodes(){const box=$("codes");box.innerHTML=latest.map(c=>'<div cl
 $("remember").onclick=()=>{if(!token())return alert("先输入 ADMIN_TOKEN");sessionStorage.setItem("rf_admin_token",token());$("genStatus").textContent="已仅在本次浏览器会话中记住"};
 $("forget").onclick=()=>{sessionStorage.removeItem("rf_admin_token");$("token").value=""};
 $("generate").onclick=async()=>{const b=$("generate");b.disabled=true;$("genStatus").textContent="正在生成…";try{const d=await api("/api/admin/create-codes",{count:Number($("count").value||1),maxDevices:Number($("devices").value||2),note:$("note").value});latest=d.codes||[];renderCodes();$("genStatus").textContent="已生成 "+latest.length+" 个重生码"}catch(e){$("genStatus").textContent="失败："+e.message}finally{b.disabled=false}};
-$("copyAll").onclick=async()=>{if(!latest.length)return;await navigator.clipboard.writeText(latest.join("\n"));$("genStatus").textContent="已复制全部重生码"};
+$("copyAll").onclick=async()=>{if(!latest.length)return;await navigator.clipboard.writeText(latest.join(String.fromCharCode(10)));$("genStatus").textContent="已复制全部重生码"};
 document.addEventListener("click",async e=>{const b=e.target.closest(".one");if(!b)return;await navigator.clipboard.writeText(b.dataset.code);b.textContent="已复制";setTimeout(()=>b.textContent="复制",900)});
 $("reset").onclick=async()=>{const code=$("resetCode").value.trim().toUpperCase();if(!code)return $("resetStatus").textContent="请输入重生码";if(!confirm("确定清空 "+code+" 的设备绑定吗？"))return;const b=$("reset");b.disabled=true;$("resetStatus").textContent="正在重置…";try{const d=await api("/api/admin/reset-code",{code});$("resetStatus").textContent=d.ok?"已清空设备绑定，该码可以重新激活":"操作完成"}catch(e){$("resetStatus").textContent="失败："+e.message}finally{b.disabled=false}};
 const saved=sessionStorage.getItem("rf_admin_token");if(saved)$("token").value=saved;
